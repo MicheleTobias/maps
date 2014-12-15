@@ -20,6 +20,9 @@
  
 <style>
 #map { height: 600px; }
+#attribution {
+  font: 12px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #555;}
 
 
 </style>
@@ -80,6 +83,7 @@ var map = L.map('map', {
     zoom: 6
     });
 
+
 // *** TOBIAS DISTRIBUTIONS ***
 
 
@@ -99,7 +103,7 @@ L.geoJson(TD, {
             radius: 3,
             fillColor: getColor(feature.properties.AMBROSIA_C),
             fillOpacity: 1
-            });
+            }).bindPopup(feature.properties.SITE_NAME);
     }
 }).addTo(ambrosia);
     
@@ -116,7 +120,7 @@ L.geoJson(TD, {
             radius: 3,
             fillColor: getColor(feature.properties.ATRIPLEX_L),
             fillOpacity: 1
-            });
+            }).bindPopup(feature.properties.SITE_NAME);
     }
 }).addTo(atriplex_l);
 
@@ -129,7 +133,7 @@ L.geoJson(TD, {
             radius: 3,
             fillColor: getColor(feature.properties.CALYSTEGIA),
             fillOpacity: 1
-            });
+            }).bindPopup(feature.properties.SITE_NAME);
     }
 }).addTo(calystegia);
 
@@ -142,7 +146,7 @@ L.geoJson(TD, {
             radius: 3,
             fillColor: getColor(feature.properties.CAKILE_MAR),
             fillOpacity: 1
-            });
+            }).bindPopup(feature.properties.SITE_NAME);
     }
 }).addTo(cakile);
 
@@ -258,6 +262,8 @@ var overlays = {
 "Cakile maritima": cakile 
 }; */
 
+   
+    
 // add the overlays and put them in groups
 var groupedOverlays = {
     "2012 Distributions": {
@@ -280,13 +286,18 @@ var groupedOverlays = {
     collapsed: false
     }).addTo(map); */
 
-var layerControl = L.control.groupedLayers(baseLayers, groupedOverlays, {
-    collapsed: false
-    });
+var options = {
+    collapsed: false,
+    exclusiveGroups: ["2012 Distrubutions"] };
     
-map.addControl(layerControl);
+
+var layerControl = L.control.groupedLayers(baseLayers, groupedOverlays, options).addTo(map);
+    
+//map.addControl(layerControl);
+
 </script>
-<p>Map overlay data: Open Street Map & Stamen's Watercolor Map.  Proper attribution coming soon. </p>
+<p id="attribution">Watercolor Tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.  OSM Tiles by <a href="http://www.openstreetmap.org">Open Street Map</a> under <a href="http://creativecommons.org/licenses/by-sa/2.0/">  Creative Commons Attribution-ShareAlike 2.0 license (CC BY-SA). </a>Data by <a href="http://opendatacommons.org/licenses/odbl/"> Open Data Commons Open Database License (ODbL)</a>. </p>
+
 </section>
 
 <section>
