@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
@@ -16,11 +21,6 @@
 <style>
 #map { height: 600px; }
 
-p {
-    color: black;
-    text-align: center;
-}
-
 
 </style>
 
@@ -30,9 +30,28 @@ p {
 
 <body>
 
-<p><b>California Beach Plant Species Distributions</b></p>
-<p>Distribution information is based on field work described in Tobias 2012 and Purer 1936</p>
+<div class="wrapper">
 
+<header>
+    <img src="images/Logo_Squares_500x488px.png" alt="Tobias Research Logo" style="float:left; padding: 10px; width:100px;height:100px">
+    <h1>California Beach Plant</h1> 
+    <h1>Species Distributions</h1>
+    <p>Distribution information is based on field work described in Tobias 2012 and Purer 1936</p>
+    
+    <p class="view"><a href="https://github.com/MicheleTobias/maps">View the Project on GitHub <small>MicheleTobias/maps</small></a></p>
+        <ul>
+          <li><a href="https://github.com/MicheleTobias/maps">Project On <strong>GitHub</strong></a></li>
+          <li><a href="https://sites.google.com/site/mtobiasresearch/">Research <strong>Website</strong></a></li>
+        </ul>
+        
+</header>
+
+<section>
+<h3>Introduction</h3>
+<p>The distribution of species can change over time.  This map shows the locations of common beach plant species described in studies published in the academic literature.  The support (point or aerial representation) is based on the description by the original author. </p>
+</section>
+
+<section>
 <div id="map"></div>
  
 <script type="text/javascript">
@@ -261,6 +280,14 @@ var layerControl = L.control.groupedLayers(baseLayers, groupedOverlays, {
     
 map.addControl(layerControl);
 </script>
+<p>Map overlay data: Open Street Map & Stamen's Watercolor Map.  Proper attribution coming soon. </p>
+</section>
 
+<section>
+    <h3>References</h3>
+    <p>Purer, E.A.  1936.  Studies of certain coastal sand dune plants of Southern California.  <i>Ecological Monorgaphs:</i> 6(1):1-87. </p>
+    <p>Tobias, M.M.  2012.  <i>California Beach Plant Biogeography: Biogeomorphology and Ecological Succession, Effects of Foot-Traffic Concentration, and Low-Altitude Aerial Photography.</i>  Dissertation.  University of California, Davis.  </p>
+    
+</section>
 </body>
 </html>
