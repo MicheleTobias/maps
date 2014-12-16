@@ -5,7 +5,8 @@ L.Control.GroupedLayers = L.Control.extend({
 options: {
 collapsed: true,
 position: 'topright',
-autoZIndex: true
+autoZIndex: true,
+exclusiveGroups: []
 },
 initialize: function (baseLayers, groupedOverlays, options) {
 var i, j;
@@ -104,9 +105,11 @@ var groupId = this._groupList.indexOf(group);
 if (groupId === -1) {
 groupId = this._groupList.push(group) - 1;
 }
+var exclusive = (this.options.exclusiveGroups.indexOf(group) != -1);
 this._layers[id].group = {
 name: group,
-id: groupId
+id: groupId,
+exclusive: exclusive
 };
 if (this.options.autoZIndex && layer.setZIndex) {
 this._lastZIndex++;
@@ -161,10 +164,15 @@ input,
 checked = this._map.hasLayer(obj.layer),
 container;
 if (obj.overlay) {
+if (obj.group.exclusive) {
+groupRadioName = 'leaflet-exclusive-group-layer-' + obj.group.id;
+input = this._createRadioElement(groupRadioName, checked);
+} else {
 input = document.createElement('input');
 input.type = 'checkbox';
 input.className = 'leaflet-control-layers-selector';
 input.defaultChecked = checked;
+}
 } else {
 input = this._createRadioElement('leaflet-base-layers', checked);
 }

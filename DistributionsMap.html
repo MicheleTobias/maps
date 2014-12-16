@@ -62,7 +62,9 @@
 
 <section>
 <div id="map"></div>
- 
+
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script src="js/leaflet.groupedlayercontrol.js"></script>
 <script type="text/javascript">
 
 // set the display colors for the point overlays
@@ -77,16 +79,13 @@ function getColorPoly(d) {
                    '#e6f5c9';
 }
 
-// make the map
-var map = L.map('map', {
-    center:[37, -119.5], 
-    zoom: 6
-    });
+
+ 
+    
+
 
 
 // *** TOBIAS DISTRIBUTIONS ***
-
-
 
 // ABRONIA LATIFOLIA "ABRONIA_LA" 
 
@@ -247,13 +246,21 @@ L.geoJson(PD, {
 // TETRAGONIA TETROGONOIDES "TETRAGONIA"
  
 // Add the Base Layers (tiles)
-var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
-var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.png').addTo(map);
+var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
+var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.png');
+
+// make the map
+var map = L.map('map', {
+    center:[37, -119.5], 
+    zoom: 6,
+    layers: [watercolor, pAmbrosia, ambrosia]
+    });
 
 var baseLayers = {
 "OSM": osm,
 "Watercolor": watercolor
 };
+
 
 /*
 var overlays = {
@@ -261,17 +268,9 @@ var overlays = {
 "Atriplex leucophylla": atriplex_l,
 "Cakile maritima": cakile 
 }; */
-
    
-    
 // add the overlays and put them in groups
 var groupedOverlays = {
-    "2012 Distributions": {
-        "Ambrosia chamissonis": ambrosia,
-        "Atriplex leucophylla": atriplex_l,
-        "Calystegia soldanella": calystegia,
-        "Cakile maritima": cakile
-        },
     "1936 Distributions": {
         "Abronia maritima": pAbroniaM,
         "Abronia umbellata": pAbroniaU,
@@ -279,6 +278,12 @@ var groupedOverlays = {
         "Atriplex leucophylla": pAtriplex,
         "Calystegia soldanella": pCalystegia,
         "Carpobrotus spp.": pCarpobrotus
+        },
+    "2012 Distributions": {
+        "Ambrosia chamissonis": ambrosia,
+        "Atriplex leucophylla": atriplex_l,
+        "Calystegia soldanella": calystegia,
+        "Cakile maritima": cakile
         }
     };
 
