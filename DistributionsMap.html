@@ -88,10 +88,43 @@ function getColorPoly(d) {
 // *** TOBIAS DISTRIBUTIONS ***
 
 // ABRONIA LATIFOLIA "ABRONIA_LA" 
+var abronia_l = new L.LayerGroup();
+
+L.geoJson(TD, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: getColor(feature.properties.ABRONIA_LA),
+            fillOpacity: 1
+            }).bindPopup(feature.properties.SITE_NAME);
+    }
+}).addTo(abronia_l);
 
 // ABRONIA MARITIMA "ABRONIA_MA"
+var abronia_m = new L.LayerGroup();
+
+L.geoJson(TD, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: getColor(feature.properties.ABRONIA_MA),
+            fillOpacity: 1
+            }).bindPopup(feature.properties.SITE_NAME);
+    }
+}).addTo(abronia_m);
 
 // ABRONIA UMBELLATA "ABRONIA_UM"
+var abronia_u = new L.LayerGroup();
+
+L.geoJson(TD, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: getColor(feature.properties.ABRONIA_UM),
+            fillOpacity: 1
+            }).bindPopup(feature.properties.SITE_NAME);
+    }
+}).addTo(abronia_u);
 
 // AMBROSIA CHAMISSONIS
 var ambrosia = new L.LayerGroup();
@@ -107,8 +140,20 @@ L.geoJson(TD, {
 }).addTo(ambrosia);
     
 // AMMOPHILA ARENARIA "AMMOPHILA_"
+// hold off on this one - observations not representative of actual distribution
 
 // ARTEMISIA PYCNOCEPHALA "ARTEMISIA_"
+var artemisia = new L.LayerGroup();
+
+L.geoJson(TD, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: getColor(feature.properties.ARTEMISIA_),
+            fillOpacity: 1
+            }).bindPopup(feature.properties.SITE_NAME);
+    }
+}).addTo(artemisia);
 
 // ATRIPLEX LEUCOPHYLLA
 var atriplex_l = new L.LayerGroup();
@@ -123,19 +168,6 @@ L.geoJson(TD, {
     }
 }).addTo(atriplex_l);
 
-// CALYSTEGIA SOLDANELLA
-var calystegia = new L.LayerGroup();
-
-L.geoJson(TD, {
-    pointToLayer: function (feature, latlng) {
-        return L.circleMarker(latlng, {
-            radius: 3,
-            fillColor: getColor(feature.properties.CALYSTEGIA),
-            fillOpacity: 1
-            }).bindPopup(feature.properties.SITE_NAME);
-    }
-}).addTo(calystegia);
-
 // CAKILE MARITIMA
 var cakile = new L.LayerGroup();
 
@@ -149,8 +181,130 @@ L.geoJson(TD, {
     }
 }).addTo(cakile);
 
-// CAMISSONIA CHEIRANTHIFOLIA "CAMISSONIA"
+// CALYSTEGIA SOLDANELLA
+var calystegia = new L.LayerGroup();
 
+L.geoJson(TD, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: getColor(feature.properties.CALYSTEGIA),
+            fillOpacity: 1
+            }).bindPopup(feature.properties.SITE_NAME);
+    }
+}).addTo(calystegia);
+
+// CAMISSONIA CHEIRANTHIFOLIA "CAMISSONIA"
+var camissonia = new L.LayerGroup();
+
+L.geoJson(TD, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: getColor(feature.properties.CAMISSONIA),
+            fillOpacity: 1
+            }).bindPopup(feature.properties.SITE_NAME);
+    }
+}).addTo(camissonia);
+
+// CARPOBROTUS SPP. "CARPOBROTU"
+var carpobrotus = new L.LayerGroup();
+
+L.geoJson(TD, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: getColor(feature.properties.CARPOBROTU),
+            fillOpacity: 1
+            }).bindPopup(feature.properties.SITE_NAME);
+    }
+}).addTo(carpobrotus);
+
+// CROTON CALIFORNICUS "CROTON_CAL"
+var croton = new L.LayerGroup();
+
+L.geoJson(TD, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: getColor(feature.properties.CROTON_CAL),
+            fillOpacity: 1
+            }).bindPopup(feature.properties.SITE_NAME);
+    }
+}).addTo(croton);
+
+// DISTICHLIS SPICATA "DISTICHLIS"  
+// hold off on this one?
+
+// GLEHNIA LITTORALIS "GLEHNIA_LI"
+var glehnia = new L.LayerGroup();
+
+L.geoJson(TD, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: getColor(feature.properties.GLEHNIA_LI),
+            fillOpacity: 1
+            }).bindPopup(feature.properties.SITE_NAME);
+    }
+}).addTo(glehnia);
+
+// HELIOTROPIUM CURASSIVICUM "HELIOTROPI"
+var heliotropium = new L.LayerGroup();
+
+L.geoJson(TD, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: getColor(feature.properties.HELIOTROPI),
+            fillOpacity: 1
+            }).bindPopup(feature.properties.SITE_NAME);
+    }
+}).addTo(heliotropium);
+
+// LATHYRUS LITTORALIS "LATHYRUS_L"
+var lathyrus = new L.LayerGroup();
+
+L.geoJson(TD, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: getColor(feature.properties.LATHYRUS_L),
+            fillOpacity: 1
+            }).bindPopup(feature.properties.SITE_NAME);
+    }
+}).addTo(lathyrus);
+
+// LEYMUS MOLLIS "LEYMUS_MOL"
+var leymus = new L.LayerGroup();
+
+L.geoJson(TD, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: getColor(feature.properties.LEYMUS_MOL),
+            fillOpacity: 1
+            }).bindPopup(feature.properties.SITE_NAME);
+    }
+}).addTo(leymus);
+
+/*
+// TETRAGONIA TETROGONOIDES "TETRAGONIA"
+var tetragonia = new L.LayerGroup();
+
+L.geoJson(TD, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: getColor(feature.properties.TETRAGONIA),
+            fillOpacity: 1
+            }).bindPopup(feature.properties.SITE_NAME);
+    }
+}).addTo(tetragonia);
+*/
+
+// ---------------------------
+// ---------------------------
 // ***PURER'S DISTRIBUTIONS***
 
 // ABRONIA MARITIMA
@@ -231,19 +385,7 @@ L.geoJson(PD, {
         };
     }}).addTo(pCarpobrotus);
 
-// CROTON CALIFORNICUS "CROTON_CAL"
 
-// DISTICHLIS SPICATA "DISTICHLIS"  --> hold off on this one?
-
-// GLEHNIA LITTORALIS "GLEHNIA_LI"
-
-// HELIOTROPIUM CURASSIVICUM "HELIOTROPI"
-
-// LATHYRUS LITTORALIS "LATHYRUS_L"
-
-// LEYMUS MOLLIS "LEYMUS_MOL"
-
-// TETRAGONIA TETROGONOIDES "TETRAGONIA"
  
 // Add the Base Layers (tiles)
 var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
@@ -251,7 +393,7 @@ var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.pn
 
 // make the map
 var map = L.map('map', {
-    center:[37, -119.5], 
+    center:[37.65, -118.75], 
     zoom: 6,
     layers: [watercolor, pAmbrosia, ambrosia]
     });
@@ -280,10 +422,22 @@ var groupedOverlays = {
         "Carpobrotus spp.": pCarpobrotus
         },
     "2012 Distributions": {
+        "Abronia latifolia": abronia_l,
+        "Abronia maritima": abronia_m,
+        "Abronia umbellata": abronia_u,
         "Ambrosia chamissonis": ambrosia,
         "Atriplex leucophylla": atriplex_l,
+        "Artemisia pycnocephalla": artemisia,
         "Calystegia soldanella": calystegia,
-        "Cakile maritima": cakile
+        "Cakile maritima": cakile,
+        "Camissoniopsis cheiranthifolia": camissonia,
+        "Carpobrotus spp.": carpobrotus,
+        "Croton californicus": croton,
+        "Glehnia littoralis": glehnia,
+        "Heliotropium curassivicum": heliotropium,
+        "Lathyrus littoralis": lathyrus,
+        "Elymus mollis": leymus /*,
+        "Tetragonia tetrogonoides": tetragonia */
         }
     };
 
