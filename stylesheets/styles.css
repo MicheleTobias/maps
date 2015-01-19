@@ -19,7 +19,8 @@ body {
 }
 
 .wrapper {
-  width: 640px;
+  width: 850px;
+  --width: 640px;
   margin: 0 auto;
   background: #DEDEDE;
   -webkit-border-radius: 8px;
@@ -199,8 +200,13 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
 }
 
-p, ul, ol, table, pre, dl {
+p, ol, table, pre, dl {
   margin: 0 0 20px;
+}
+
+ol#maps  li{
+    display: inline;
+    list-style-type: none;
 }
 
 h1, h2, h3 {
@@ -354,3 +360,25 @@ footer p + p {
     content: 'at http://github.com/';
   }
 }
+#mapwrapper {
+  display:table;
+  width:990px;
+}
+#row {
+  display:table-row;
+}
+#first {
+  display:table-cell;
+  background-color:red;
+  width:200px;
+}
+#second {
+  display:table-cell;
+  background-color:blue;
+  width:300px;
+}
+
+#citation {
+  padding-left: 22px ;
+  text-indent: -22px ;
+} 

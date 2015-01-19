@@ -19,10 +19,13 @@
  
  
 <style>
-#map { height: 600px; }
+#map { height: 650px; width: 260px; margin-right: 5px; }
+#map2 { height: 650px; width: 260px; margin-right: 5px;}
+#map3 { height: 650px; width: 260px;}
 #attribution {
   font: 12px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #555;}
+
 
 
 </style>
@@ -61,7 +64,9 @@
 </section>
 
 <section>
-<div id="map"></div>
+<!--Info on making 3 divs next to e/o: http://stackoverflow.com/questions/20179154/html-and-css-how-can-i-align-3-divs-side-by-side -->
+<p class = "view">
+<div id="map" style="float:left"></div>
 
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 <script src="js/leaflet.groupedlayercontrol.js"></script>
@@ -393,8 +398,8 @@ var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.pn
 
 // make the map
 var map = L.map('map', {
-    center:[37.65, -118.75], 
-    zoom: 6,
+    center:[35, -119.5], 
+    zoom: 5,
     layers: [watercolor, pAmbrosia, ambrosia]
     });
 
@@ -446,7 +451,7 @@ var groupedOverlays = {
     }).addTo(map); */
 
 var options = {
-    collapsed: false,
+    collapsed: true,
     exclusiveGroups: ["1936 Distributions", "2012 Distributions"] 
     };
     
@@ -456,15 +461,65 @@ var layerControl = L.control.groupedLayers(baseLayers, groupedOverlays, options)
 //map.addControl(layerControl);
 
 </script>
+
+<div id="map2" style="float:left"></div>
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script src="js/leaflet.groupedlayercontrol.js"></script>
+<script type="text/javascript">
+// make the map
+ 
+// Add the Base Layers (tiles)
+var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
+var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.png');
+
+var map = L.map('map2', {
+    center:[35, -119.5], 
+    zoom: 5,
+    layers: [watercolor]
+    });
+
+
+var baseLayers = {
+"OSM": osm,
+"Watercolor": watercolor
+};
+</script>
+<div id="map3"></div>
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script src="js/leaflet.groupedlayercontrol.js"></script>
+<script type="text/javascript">
+// make the map
+ 
+// Add the Base Layers (tiles)
+var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
+var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.png');
+
+var map = L.map('map3', {
+    center:[35, -119.5], 
+    zoom: 5,
+    layers: [watercolor]
+    });
+
+
+var baseLayers = {
+"OSM": osm,
+"Watercolor": watercolor
+};
+</script>
+</p>
+
 <p id="attribution">Watercolor Tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.  OSM Tiles by <a href="http://www.openstreetmap.org">Open Street Map</a> under <a href="http://creativecommons.org/licenses/by-sa/2.0/">  Creative Commons Attribution-ShareAlike 2.0 license (CC BY-SA). </a>Data by <a href="http://opendatacommons.org/licenses/odbl/"> Open Data Commons Open Database License (ODbL)</a>. </p>
 
 </section>
 
 <section>
     <h3>References</h3>
-    <p>Purer, E.A.  1936.  Studies of certain coastal sand dune plants of Southern California.  <i>Ecological Monorgaphs:</i> 6(1):1-87. </p>
-    <p>Tobias, M.M.  2012.  <i>California Beach Plant Biogeography: Biogeomorphology and Ecological Succession, Effects of Foot-Traffic Concentration, and Low-Altitude Aerial Photography.</i>  Dissertation.  University of California, Davis.  </p>
+    <p id="citation">Barbour, M. G., de Jong, T. M., & Johnson, A. F. 1976. Synecology of beach vegetation along the Pacific Coast of the United States of America: A first approximation. Journal of Biogeography, 3, 55–69. </p>
+    <p id="citation">Cooper, W. S. 1936. The strand and dune Flora of the Pacific Coast of North America: A geographic study. In T. H. Goodspeed (Ed.), Essays in geobotany in honor of William Albert Setchell (pp. 141–187). Berkeley, CA: University of California Press.</p>
+    <p id="citation">Purer, E.A.  1936.  Studies of certain coastal sand dune plants of Southern California.  <i>Ecological Monorgaphs:</i> 6(1):1-87. </p>
+    <p id="citation">Tobias, M.M.  2012.  <i>California Beach Plant Biogeography: Biogeomorphology and Ecological Succession, Effects of Foot-Traffic Concentration, and Low-Altitude Aerial Photography.</i>  Dissertation.  University of California, Davis.  </p>
     
+
 </section>
 </body>
 </html>
