@@ -12,12 +12,25 @@
   <script src="js/leaflet.groupedlayercontrol.js" type="text/javascript"></script>
  
 <!-- Layers To Load --> 
- <script src="js/TD_display.js" type="text/javascript"></script>
- <script src="js/PD.js" type="text/javascript"></script>
+ <!-- BARBOUR --> <script src="js/BD.js" type="text/javascript"></script>
+ <!-- TOBIAS --> <script src="js/TD_display.js" type="text/javascript"></script>
+ <!-- PURER --> <script src="js/PD.js" type="text/javascript"></script>
+ <!-- COOPER --> 
+ <script src="js/C_AbLa.js" type="text/javascript"></script> 
+ <script src="js/C_AbMa.js" type="text/javascript"></script> 
+ <script src="js/C_AbUm.js" type="text/javascript"></script> 
+ <script src="js/C_AmCh.js" type="text/javascript"></script> 
+ <script src="js/C_ArPy.js" type="text/javascript"></script> 
+ <script src="js/C_AtLe.js" type="text/javascript"></script> 
+ <script src="js/C_CaChe.js" type="text/javascript"></script>
+ <script src="js/C_CaChi.js" type="text/javascript"></script> 
+ <script src="js/C_CaEd.js" type="text/javascript"></script> 
+ <script src="js/C_CaSo.js" type="text/javascript"></script> 
+ <script src="js/C_ElMo.js" type="text/javascript"></script> 
+ <script src="js/C_GlLi.js" type="text/javascript"></script> 
+ <script src="js/C_LaLi.js" type="text/javascript"></script> 
 
 
- 
- 
 <style>
 #map { height: 650px; width: 260px; margin-right: 5px; }
 #map2 { height: 650px; width: 260px; margin-right: 5px;}
@@ -65,8 +78,10 @@
 
 <section>
 <!--Info on making 3 divs next to e/o: http://stackoverflow.com/questions/20179154/html-and-css-how-can-i-align-3-divs-side-by-side -->
+
+
 <p class = "view">
-<div id="map" style="float:left"></div>
+<div id="map" style="float:left"></div> <!-- ***PURER & COOPER *** -->
 
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 <script src="js/leaflet.groupedlayercontrol.js"></script>
@@ -84,10 +99,564 @@ function getColorPoly(d) {
                    '#e6f5c9';
 }
 
+// *** COOPER DISTRIBUTIONS ***
+
+// ABRONIA LATIFOLIA 
+var abronia_l = new L.LayerGroup();
+
+L.geoJson(C_AbLa, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: '#e6550d',
+            fillOpacity: 1
+            });
+    }
+}).addTo(abronia_l);
+
+// ABRONIA MARITIMA 
+var abronia_m = new L.LayerGroup();
+
+L.geoJson(C_AbMa, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: '#e6550d',
+            fillOpacity: 1
+            });
+    }
+}).addTo(abronia_m);
+
+// ABRONIA UMBELLATA
+var abronia_u = new L.LayerGroup();
+
+L.geoJson(C_AbUm, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: '#e6550d',
+            fillOpacity: 1
+            });
+    }
+}).addTo(abronia_u);
+
+// AMBROSIA CHAMISSONIS
+var ambrosia = new L.LayerGroup();
+
+L.geoJson(C_AmCh, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: '#e6550d',
+            fillOpacity: 1
+            });
+    }
+}).addTo(ambrosia);
+
+// ARTEMISIA PYCNOCEPHALA
+var artemisia = new L.LayerGroup();
+
+L.geoJson(C_ArPy, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: '#e6550d',
+            fillOpacity: 1
+            });
+    }
+}).addTo(artemisia);
+
+// ATRIPLEX LEUCOPHYLLA
+var atriplex_l = new L.LayerGroup();
+
+L.geoJson(C_AtLe, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: '#e6550d',
+            fillOpacity: 1
+            });
+    }
+}).addTo(atriplex_l);
+
+
+// CAKILE EDENTULA
+var cakile = new L.LayerGroup();
+
+L.geoJson(C_CaEd, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: '#e6550d',
+            fillOpacity: 1
+            });
+    }
+}).addTo(cakile);
+
+// CALYSTEGIA SOLDANELLA
+var calystegia = new L.LayerGroup();
+
+L.geoJson(C_CaSo, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: '#e6550d',
+            fillOpacity: 1
+            });
+    }
+}).addTo(calystegia);
+
+// CAMISSONIA CHEIRANTHIFOLIA
+var camissonia = new L.LayerGroup();
+
+L.geoJson(C_CaChe, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: '#e6550d',
+            fillOpacity: 1
+            });
+    }
+}).addTo(camissonia);
+
+// CARPOBROTUS SPP.
+var carpobrotus = new L.LayerGroup();
+
+L.geoJson(C_CaChi, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: '#e6550d',
+            fillOpacity: 1
+            });
+    }
+}).addTo(carpobrotus);
+
+// GLEHNIA LITTORALIS
+var glehnia = new L.LayerGroup();
+
+L.geoJson(C_GlLi, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: '#e6550d',
+            fillOpacity: 1
+            });
+    }
+}).addTo(glehnia);
+
+// LATHYRUS LITTORALIS
+var lathyrus = new L.LayerGroup();
+
+L.geoJson(C_LaLi, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: '#e6550d',
+            fillOpacity: 1
+            });
+    }
+}).addTo(lathyrus);
+
+// ELYMUS MOLLIS
+var leymus = new L.LayerGroup();
+
+L.geoJson(C_ElMo, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: '#e6550d',
+            fillOpacity: 1
+            });
+    }
+}).addTo(leymus);
+
+
+// ---------------------------
+// ---------------------------
+// ***PURER'S DISTRIBUTIONS***
+
+// ABRONIA MARITIMA
+var pAbroniaM = new L.LayerGroup();
+L.geoJson(PD, {
+    style: function (feature) {
+    return {
+        fillColor: getColorPoly(feature.properties.ABRONIAMAR),
+        weight: 1,
+        opacity: 1,
+        color: 'gray',
+        fillOpacity: .5
+        };
+    }}).addTo(pAbroniaM);
+
+// ABRONIA UMBELLATA
+var pAbroniaU = new L.LayerGroup();
+L.geoJson(PD, {
+    style: function (feature) {
+    return {
+        fillColor: getColorPoly(feature.properties.ABRONIAUMBE),
+        weight: 1,
+        opacity: 1,
+        color: 'gray',
+        fillOpacity: .5
+        };
+    }}).addTo(pAbroniaU);
+
+// AMBROSIA CHAMISSONIS
+var pAmbrosia = new L.LayerGroup();
+L.geoJson(PD, {
+    style: function (feature) {
+    return {
+        fillColor: getColorPoly(feature.properties.AMBROSIACH),
+        weight: 1,
+        opacity: 1,
+        color: 'gray',
+        fillOpacity: .5
+        };
+    }}).addTo(pAmbrosia);
+
+// ATRIPLEX LEUCOPHYLLA
+var pAtriplex = new L.LayerGroup();
+L.geoJson(PD, {
+    style: function (feature) {
+    return {
+        fillColor: getColorPoly(feature.properties.ATRIPLEXLE),
+        weight: 1,
+        opacity: 1,
+        color: 'gray',
+        fillOpacity: .5
+        };
+    }}).addTo(pAtriplex);
+
+// CALYSTEGIA SOLDANELLA
+var pCalystegia = new L.LayerGroup();
+L.geoJson(PD, {
+    style: function (feature) {
+    return {
+        fillColor: getColorPoly(feature.properties.CALYSTEGIA),
+        weight: 1,
+        opacity: 1,
+        color: 'gray',
+        fillOpacity: .5
+        };
+    }}).addTo(pCalystegia);
+    
+//CARPOBROTUS SPP.
+var pCarpobrotus = new L.LayerGroup();
+L.geoJson(PD, {
+    style: function (feature) {
+    return {
+        fillColor: getColorPoly(feature.properties.CARPOBROTU),
+        weight: 1,
+        opacity: 1,
+        color: 'gray',
+        fillOpacity: .5
+        };
+    }}).addTo(pCarpobrotus);
+
 
  
+// Add the Base Layers (tiles)
+var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
+var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.png');
+
+// make the map
+var map = L.map('map', {
+    center:[35, -119.5], 
+    zoom: 5,
+    layers: [watercolor, pAmbrosia, ambrosia]
+    });
+
+var baseLayers = {
+"OSM": osm,
+"Watercolor": watercolor
+};
+
+
+/*
+var overlays = {
+//"Markers": marker,
+"Atriplex leucophylla": atriplex_l,
+"Cakile maritima": cakile 
+}; */
+   
+// add the overlays and put them in groups
+var groupedOverlays = {
+    "1936 Distributions (Purer)": {
+        "Abronia maritima": pAbroniaM,
+        "Abronia umbellata": pAbroniaU,
+        "Ambrosia chamissonis": pAmbrosia,
+        "Atriplex leucophylla": pAtriplex,
+        "Calystegia soldanella": pCalystegia,
+        "Carpobrotus spp.": pCarpobrotus
+        },
+    "1936 Distributions (Cooper)": {
+        "Abronia latifolia": abronia_l,
+        "Abronia maritima": abronia_m,
+        "Abronia umbellata": abronia_u,
+        "Ambrosia chamissonis": ambrosia,
+        "Atriplex leucophylla": atriplex_l,
+        "Artemisia pycnocephalla": artemisia,
+        "Calystegia soldanella": calystegia,
+        "Cakile maritima": cakile,
+        "Camissoniopsis cheiranthifolia": camissonia,
+        "Carpobrotus spp.": carpobrotus,
+        "Glehnia littoralis": glehnia,
+        "Lathyrus littoralis": lathyrus,
+        "Elymus mollis": leymus 
+        }
+    };
+
+/*L.control.layers(baseLayers, overlays, {
+    collapsed: false
+    }).addTo(map); */
+
+var options = {
+    collapsed: true,
+    exclusiveGroups: ["1936 Distributions (Cooper)", "2012 Distributions (Purer)"] 
+    };
     
 
+var layerControl = L.control.groupedLayers(baseLayers, groupedOverlays, options).addTo(map);
+    
+//map.addControl(layerControl);
+
+</script>
+
+<div id="map2" style="float:left"></div> <!-- *** BARBOUR *** -->
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script src="js/leaflet.groupedlayercontrol.js"></script>
+<script type="text/javascript">
+// set the display colors for the point overlays
+function getColor(d) {
+    return d > 0 ? '#e6550d':
+                   '#e6f5c9';
+}
+
+// set the display colors for the polygon overlays
+function getColorPoly(d) {
+    return d > 0 ? '#a6d854': //'#d01c8b' :
+                   '#e6f5c9';
+}
+
+// *** BARBOUR DISTRIBUTIONS ***
+
+// ABRONIA LATIFOLIA "ABRONIA_LA" 
+var abronia_l = new L.LayerGroup();
+
+L.geoJson(BD, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: getColor(feature.properties.Barbour_Attributes_AbLa),
+            fillOpacity: 1
+            }).bindPopup(feature.properties.Descriptio);
+    }
+}).addTo(abronia_l);
+
+// ABRONIA MARITIMA "ABRONIA_MA"
+var abronia_m = new L.LayerGroup();
+
+L.geoJson(BD, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: getColor(feature.properties.Barbour_Attributes_AbMa),
+            fillOpacity: 1
+            }).bindPopup(feature.properties.Descriptio);
+    }
+}).addTo(abronia_m);
+
+// AMBROSIA CHAMISSONIS
+var ambrosia = new L.LayerGroup();
+
+L.geoJson(BD, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: getColor(feature.properties.Barbour_Attributes_AmCh),
+            fillOpacity: 1
+            }).bindPopup(feature.properties.Descriptio);
+    }
+}).addTo(ambrosia);
+
+
+// ATRIPLEX LEUCOPHYLLA
+var atriplex_l = new L.LayerGroup();
+
+L.geoJson(BD, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: getColor(feature.properties.Barbour_Attributes_AtLe),
+            fillOpacity: 1
+            }).bindPopup(feature.properties.Descriptio);
+    }
+}).addTo(atriplex_l);
+
+// CAKILE EDENTULA
+var cakile_e = new L.LayerGroup();
+
+L.geoJson(BD, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: getColor(feature.properties.Barbour_Attributes_CaEd),
+            fillOpacity: 1
+            }).bindPopup(feature.properties.Descriptio);
+    }
+}).addTo(cakile_e);
+
+// CAKILE MARITIMA
+var cakile = new L.LayerGroup();
+
+L.geoJson(BD, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: getColor(feature.properties.Barbour_Attributes_CaMa),
+            fillOpacity: 1
+            }).bindPopup(feature.properties.Descriptio);
+    }
+}).addTo(cakile);
+
+// CALYSTEGIA SOLDANELLA
+var calystegia = new L.LayerGroup();
+
+L.geoJson(BD, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: getColor(feature.properties.Barbour_Attributes_CaSo),
+            fillOpacity: 1
+            }).bindPopup(feature.properties.Descriptio);
+    }
+}).addTo(calystegia);
+
+// CAMISSONIA CHEIRANTHIFOLIA "CAMISSONIA"
+var camissonia = new L.LayerGroup();
+
+L.geoJson(BD, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: getColor(feature.properties.Barbour_Attributes_CaCh),
+            fillOpacity: 1
+            }).bindPopup(feature.properties.Descriptio);
+    }
+}).addTo(camissonia);
+
+// CARPOBROTUS SPP. "CARPOBROTU"
+var carpobrotus = new L.LayerGroup();
+
+L.geoJson(BD, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: getColor(feature.properties.Barbour_Attributes_MeCh),
+            fillOpacity: 1
+            }).bindPopup(feature.properties.Descriptio);
+    }
+}).addTo(carpobrotus);
+
+// LATHYRUS LITTORALIS "LATHYRUS_L"
+var lathyrus = new L.LayerGroup();
+
+L.geoJson(BD, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: getColor(feature.properties.Barbour_Attributes_LaLi),
+            fillOpacity: 1
+            }).bindPopup(feature.properties.Descriptio);
+    }
+}).addTo(lathyrus);
+
+// LEYMUS MOLLIS "LEYMUS_MOL"
+var leymus = new L.LayerGroup();
+
+L.geoJson(BD, {
+    pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng, {
+            radius: 3,
+            fillColor: getColor(feature.properties.Barbour_Attributes_ElMo),
+            fillOpacity: 1
+            }).bindPopup(feature.properties.Descriptio);
+    }
+}).addTo(leymus);
+
+ 
+// Add the Base Layers (tiles)
+var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
+var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.png');
+
+// make the map
+var map = L.map('map2', {
+    center:[35, -119.5], 
+    zoom: 5,
+    layers: [watercolor, ambrosia]
+    });
+
+var baseLayers = {
+"OSM": osm,
+"Watercolor": watercolor
+};
+
+
+/*
+var overlays = {
+//"Markers": marker,
+"Atriplex leucophylla": atriplex_l,
+"Cakile maritima": cakile 
+}; */
+   
+// add the overlays and put them in groups
+var groupedOverlays = {
+    "1976 Distributions": {
+        "Abronia latifolia": abronia_l,
+        "Abronia maritima": abronia_m,
+        "Ambrosia chamissonis": ambrosia,
+        "Atriplex leucophylla": atriplex_l,
+        "Calystegia soldanella": calystegia,
+        "Cakile edentual": cakile_e,
+        "Cakile maritima": cakile,
+        "Camissoniopsis cheiranthifolia": camissonia,
+        "Carpobrotus spp.": carpobrotus,
+        "Lathyrus littoralis": lathyrus,
+        "Elymus mollis": leymus /*,
+        "Tetragonia tetrogonoides": tetragonia */
+        }
+    };
+
+/*L.control.layers(baseLayers, overlays, {
+    collapsed: false
+    }).addTo(map); */
+
+var options = {
+    collapsed: true,
+    exclusiveGroups: ["1976 Distributions"] 
+    };
+    
+
+var layerControl = L.control.groupedLayers(baseLayers, groupedOverlays, options).addTo(map);
+    
+//map.addControl(layerControl);
+</script>
+<div id="map3"></div>
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script src="js/leaflet.groupedlayercontrol.js"></script>
+<script type="text/javascript">
+// set the display colors for the point overlays
+function getColor(d) {
+    return d > 0 ? '#e6550d':
+                   '#e6f5c9';
+}
+
+// set the display colors for the polygon overlays
+function getColorPoly(d) {
+    return d > 0 ? '#a6d854': //'#d01c8b' :
+                   '#e6f5c9';
+}
 
 
 // *** TOBIAS DISTRIBUTIONS ***
@@ -308,99 +877,16 @@ L.geoJson(TD, {
 }).addTo(tetragonia);
 */
 
-// ---------------------------
-// ---------------------------
-// ***PURER'S DISTRIBUTIONS***
-
-// ABRONIA MARITIMA
-var pAbroniaM = new L.LayerGroup();
-L.geoJson(PD, {
-    style: function (feature) {
-    return {
-        fillColor: getColorPoly(feature.properties.ABRONIAMAR),
-        weight: 1,
-        opacity: 1,
-        color: 'gray',
-        fillOpacity: .5
-        };
-    }}).addTo(pAbroniaM);
-
-// ABRONIA UMBELLATA
-var pAbroniaU = new L.LayerGroup();
-L.geoJson(PD, {
-    style: function (feature) {
-    return {
-        fillColor: getColorPoly(feature.properties.ABRONIAUMBE),
-        weight: 1,
-        opacity: 1,
-        color: 'gray',
-        fillOpacity: .5
-        };
-    }}).addTo(pAbroniaU);
-
-// AMBROSIA CHAMISSONIS
-var pAmbrosia = new L.LayerGroup();
-L.geoJson(PD, {
-    style: function (feature) {
-    return {
-        fillColor: getColorPoly(feature.properties.AMBROSIACH),
-        weight: 1,
-        opacity: 1,
-        color: 'gray',
-        fillOpacity: .5
-        };
-    }}).addTo(pAmbrosia);
-
-// ATRIPLEX LEUCOPHYLLA
-var pAtriplex = new L.LayerGroup();
-L.geoJson(PD, {
-    style: function (feature) {
-    return {
-        fillColor: getColorPoly(feature.properties.ATRIPLEXLE),
-        weight: 1,
-        opacity: 1,
-        color: 'gray',
-        fillOpacity: .5
-        };
-    }}).addTo(pAtriplex);
-
-// CALYSTEGIA SOLDANELLA
-var pCalystegia = new L.LayerGroup();
-L.geoJson(PD, {
-    style: function (feature) {
-    return {
-        fillColor: getColorPoly(feature.properties.CALYSTEGIA),
-        weight: 1,
-        opacity: 1,
-        color: 'gray',
-        fillOpacity: .5
-        };
-    }}).addTo(pCalystegia);
-    
-//CARPOBROTUS SPP.
-var pCarpobrotus = new L.LayerGroup();
-L.geoJson(PD, {
-    style: function (feature) {
-    return {
-        fillColor: getColorPoly(feature.properties.CARPOBROTU),
-        weight: 1,
-        opacity: 1,
-        color: 'gray',
-        fillOpacity: .5
-        };
-    }}).addTo(pCarpobrotus);
-
-
  
 // Add the Base Layers (tiles)
 var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
 var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.png');
 
 // make the map
-var map = L.map('map', {
+var map = L.map('map3', {
     center:[35, -119.5], 
     zoom: 5,
-    layers: [watercolor, pAmbrosia, ambrosia]
+    layers: [watercolor, ambrosia]
     });
 
 var baseLayers = {
@@ -418,14 +904,6 @@ var overlays = {
    
 // add the overlays and put them in groups
 var groupedOverlays = {
-    "1936 Distributions": {
-        "Abronia maritima": pAbroniaM,
-        "Abronia umbellata": pAbroniaU,
-        "Ambrosia chamissonis": pAmbrosia,
-        "Atriplex leucophylla": pAtriplex,
-        "Calystegia soldanella": pCalystegia,
-        "Carpobrotus spp.": pCarpobrotus
-        },
     "2012 Distributions": {
         "Abronia latifolia": abronia_l,
         "Abronia maritima": abronia_m,
@@ -452,59 +930,13 @@ var groupedOverlays = {
 
 var options = {
     collapsed: true,
-    exclusiveGroups: ["1936 Distributions", "2012 Distributions"] 
+    exclusiveGroups: ["2012 Distributions"] 
     };
     
 
 var layerControl = L.control.groupedLayers(baseLayers, groupedOverlays, options).addTo(map);
     
 //map.addControl(layerControl);
-
-</script>
-
-<div id="map2" style="float:left"></div>
-<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-<script src="js/leaflet.groupedlayercontrol.js"></script>
-<script type="text/javascript">
-// make the map
- 
-// Add the Base Layers (tiles)
-var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
-var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.png');
-
-var map = L.map('map2', {
-    center:[35, -119.5], 
-    zoom: 5,
-    layers: [watercolor]
-    });
-
-
-var baseLayers = {
-"OSM": osm,
-"Watercolor": watercolor
-};
-</script>
-<div id="map3"></div>
-<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-<script src="js/leaflet.groupedlayercontrol.js"></script>
-<script type="text/javascript">
-// make the map
- 
-// Add the Base Layers (tiles)
-var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
-var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.png');
-
-var map = L.map('map3', {
-    center:[35, -119.5], 
-    zoom: 5,
-    layers: [watercolor]
-    });
-
-
-var baseLayers = {
-"OSM": osm,
-"Watercolor": watercolor
-};
 </script>
 </p>
 
