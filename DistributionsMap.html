@@ -39,6 +39,10 @@
   font: 12px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #555;}
 
+td {
+     text-align: center
+}
+
 
 
 </style>
@@ -79,6 +83,13 @@
 <section>
 <!--Info on making 3 divs next to e/o: http://stackoverflow.com/questions/20179154/html-and-css-how-can-i-align-3-divs-side-by-side -->
 
+<table style="width:100%">
+    <tr> 
+        <td>1936</td>
+        <td>1974</td>
+        <td>2012</td>
+    </tr>
+</table>
 
 <p class = "view">
 <div id="map" style="float:left"></div> <!-- ***PURER & COOPER *** -->
@@ -362,7 +373,7 @@ var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.pn
 
 // make the map
 var map = L.map('map', {
-    center:[35, -119.5], 
+    center:[37, -119.5], 
     zoom: 5,
     layers: [watercolor, pAmbrosia, ambrosia]
     });
@@ -592,7 +603,7 @@ var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.pn
 
 // make the map
 var map = L.map('map2', {
-    center:[35, -119.5], 
+    center:[37, -119.5], 
     zoom: 5,
     layers: [watercolor, ambrosia]
     });
@@ -884,7 +895,7 @@ var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.pn
 
 // make the map
 var map = L.map('map3', {
-    center:[35, -119.5], 
+    center:[37, -119.5], 
     zoom: 5,
     layers: [watercolor, ambrosia]
     });
