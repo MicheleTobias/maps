@@ -9,7 +9,8 @@
  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
-  <script src="js/leaflet.groupedlayercontrol.js" type="text/javascript"></script>
+ <script src="js/leaflet.groupedlayercontrol.js" type="text/javascript"></script>
+ <script src="js/maplink.js" type="text/javascript"></script>
  
 <!-- Layers To Load --> 
  <!-- BARBOUR --> <script src="js/BD.js" type="text/javascript"></script>
@@ -32,7 +33,7 @@
 
 
 <style>
-#map { height: 650px; width: 260px; margin-right: 5px; }
+#map1 { height: 650px; width: 260px; margin-right: 5px; }
 #map2 { height: 650px; width: 260px; margin-right: 5px;}
 #map3 { height: 650px; width: 260px;}
 #attribution {
@@ -83,8 +84,8 @@ td {
 <p>The point locations on all the maps are digitized from information supplied in published papers.  Cooper's (1936) locations were digitized from georeferenced scanned maps published in his paper.  Because of this, the locations are presence-only observations.  Each point that appears in any species' distribution is a place where the species was observed; there are no locations marked where the species was not seen.  The other locations - from Purer (1936), Barbour et al. (1974), and Tobias (2012) - all display presence-absence data.  In these papers, it was clear which locations each author visited and which species were found at these locations.  For these data, colored markers represent locations where the species was seen and white markers represent locations without the species.</p>
 
 <h4>Selecting Layers</h4>
-<p>Changing the species in one map does not automatically change the species distributions in the other maps (yet), nor is panning and zooming linked between the maps (yet).  Please be patient with the navigations and layer selection and make your selections carefully.</p>
-<p>The 1936 map has distributions from two different studies.  I recommend showing only one layer from each section at a time.  Since the points and polygons are the same for each species in each group, the most recently selected layer will block any previously selected layer.  </p>
+<p>Changing the species in one map does not automatically change the species distributions in the other maps (yet).  Panning and zooming is now linked between the maps.  Please be patient with the navigations and layer selection and make your selections carefully.</p>
+<p>The 1936 map has distributions from two different studies.</p>
 </section>
 
 <section>
@@ -99,7 +100,7 @@ td {
 </table>
 
 <p class = "view">
-<div id="map" style="float:left"></div> <!-- ***PURER & COOPER *** -->
+<div id="map1" style="float:left"></div> <!-- ***PURER & COOPER *** -->
 
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 <script src="js/leaflet.groupedlayercontrol.js"></script>
@@ -379,7 +380,7 @@ var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
 var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.png');
 
 // make the map
-var map = L.map('map', {
+var map1 = L.map('map1', {
     center:[37, -119.5], 
     zoom: 5,
     layers: [watercolor, pAmbrosia, ambrosia]
@@ -435,9 +436,11 @@ var options = {
     };
     
 
-var layerControl = L.control.groupedLayers(baseLayers, groupedOverlays, options).addTo(map);
+var layerControl = L.control.groupedLayers(baseLayers, groupedOverlays, options).addTo(map1);
     
 //map.addControl(layerControl);
+
+map1.on('moveend zoomend', maplink);
 
 </script>
 
@@ -609,7 +612,7 @@ var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
 var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.png');
 
 // make the map
-var map = L.map('map2', {
+var map2 = L.map('map2', {
     center:[37, -119.5], 
     zoom: 5,
     layers: [watercolor, ambrosia]
@@ -656,9 +659,12 @@ var options = {
     };
     
 
-var layerControl = L.control.groupedLayers(baseLayers, groupedOverlays, options).addTo(map);
+var layerControl = L.control.groupedLayers(baseLayers, groupedOverlays, options).addTo(map2);
     
 //map.addControl(layerControl);
+
+map2.on('moveend zoomend', maplink);
+
 </script>
 <div id="map3"></div>
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
@@ -901,7 +907,7 @@ var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
 var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.png');
 
 // make the map
-var map = L.map('map3', {
+var map3 = L.map('map3', {
     center:[37, -119.5], 
     zoom: 5,
     layers: [watercolor, ambrosia]
@@ -942,9 +948,6 @@ var groupedOverlays = {
         }
     };
 
-/*L.control.layers(baseLayers, overlays, {
-    collapsed: false
-    }).addTo(map); */
 
 var options = {
     collapsed: true,
@@ -952,9 +955,11 @@ var options = {
     };
     
 
-var layerControl = L.control.groupedLayers(baseLayers, groupedOverlays, options).addTo(map);
+var layerControl = L.control.groupedLayers(baseLayers, groupedOverlays, options).addTo(map3);
     
 //map.addControl(layerControl);
+
+map3.on('moveend zoomend', maplink);
 </script>
 </p>
 
@@ -971,5 +976,18 @@ var layerControl = L.control.groupedLayers(baseLayers, groupedOverlays, options)
     
 
 </section>
+<!-- moveend
+set up listener which is a javascript thing
+look at alex's comparamap 
+map.on('moveend zoomend', maplink);  
+    map1.moveend & map1.zoomend could be used as separate event registerers
+    Goes in each map script
+make maplink function - recenter based on the moveend or zoomend
+    get center or zoom from moved map - Map Methods on the Leaflet API page 
+        "target" says which map moved, get center and zoom from Target, apply those to the other maps
+    pass that info to the other maps
+    Goes in header
+    
+ -->
 </body>
 </html>
