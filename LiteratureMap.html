@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+ <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+ <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+ <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+ <script src="js/leaflet.groupedlayercontrol.js" type="text/javascript"></script>
+ 
+
+<style>
+#map1 { height: 600px; width: 600px; margin-right: 5px; }
+#map2 { height: 650px; width: 260px; margin-right: 5px;}
+#map3 { height: 650px; width: 260px;}
+#attribution {
+  font: 12px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #555;}
+
+td {
+     text-align: center;
+     font-weight: bold;
+}
+
+
+
+</style>
+
+<title>CA Beach Vegetation Literature Map</title>
+
+</head>
+
+<body>
+<div class="wrapper">
+
+<header>
+    <img src="images/Logo_Squares_500x488px.png" alt="Tobias Research Logo" style="float:left; padding: 10px; width:100px;height:100px">
+    <h1>California Beach Plant</h1> 
+    <h1>Literature Map</h1>
+    <p>Michele M. Tobias, PhD</p>
+    <p>University of California, Davis</p>
+    <p>mmtobias[at]ucdavis.edu</p>
+    
+    <p class="view"><a href="https://github.com/MicheleTobias/maps">View the Project on GitHub <small>MicheleTobias/maps</small></a></p>
+        <ul>
+          <li><a href="https://github.com/MicheleTobias/maps">Project On <strong>GitHub</strong></a></li>
+          <li><a href="https://sites.google.com/site/mtobiasresearch/">Research <strong>Website</strong></a></li>
+        </ul>
+        
+</header>
+<section>
+<h3>Introduction</h3>
+<p> <strong>Coming soon!</strong>  A description of what this map shows <strong>PLUS!</strong> how you can use it, contribute, and donate! </p>
+</section>
+
+<section>
+<p class = "view">
+<div id="map1"></div>
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script src="js/leaflet.groupedlayercontrol.js"></script>
+<script type="text/javascript">
+
+/* PSUEDO CODE!!!
+var zoterodata = some magic to make the zotero api return into a useable object
+
+isolate the zotero geometry extra
+
+pass zotero geometry to the map
+
+*/
+var map1 = L.map('map1').setView([37, -119.5], 5);
+
+var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map1);
+//var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.png').addTo(map1);
+
+var myLayer = L.geoJson().addTo(map1);
+var xmlhttp = new XMLHttpRequest();
+var url = 'https://api.zotero.org/users/2338633/collections/NR8XU5N6/items?v=3';
+
+xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        var myArr = JSON.parse(xmlhttp.responseText);
+        myFunction(myArr);
+    }
+}
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function myFunction(arr) {
+    var geojsonFeature;
+    var i;
+    for(i = 0; i < arr.length; i++) {
+        geojsonFeature = JSON.parse(arr[i].data.extra);
+        // make marker using "out" as variable
+        myLayer.addData(geojsonFeature);
+    }
+    // prints with: document.getElementById("map1").innerHTML = out;
+}
+
+
+/*
+
+
+var geojsonFeature = {"type": "Point", "coordinates": [ -119.2827956735272, 34.271088016469697 ] }
+}
+
+/*
+var responseContainer = document.getElementById('map1');
+var zoteroData = new XMLHttpRequest();
+var zoteroAPI = 'https://api.zotero.org/users/2338633/items/search/tag=Map?v=3';
+zoteroData.open("GET", zoteroAPI, false);
+zoteroData.send();
+map1.innerHTML = zoteroData.responseText;
+*/
+
+/*
+var myLayer = L.geoJson().addTo(map1);
+myLayer.addData(geojsonFeature);
+
+/*
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    maxZoom: 9
+}).addTo(map1);
+
+
+
+
+// Add the Base Layers (tiles)
+var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
+var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.png');
+
+// make the map
+var map1 = L.map('map1', {
+    center:[37, -119.5], 
+    zoom: 5,
+    layers: [watercolor, myLayer]
+    });
+
+var baseLayers = {
+"OSM": osm,
+"Watercolor": watercolor
+};
+*/
+</script>
+</div>
+</p>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
