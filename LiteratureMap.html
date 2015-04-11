@@ -89,24 +89,38 @@ xmlhttp.onreadystatechange = function() {
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
 
-var geojsonFeature;
 
 function myFunction(arr) {
     var parsetext;
     var i;
     for(i = 0; i < arr.length; i++) { 
-        parsetext = '[{"type": "Feature", "properties":{"key": "' + arr[i].data.key + '"}, "geometry":' + arr[i].data.extra + '}]';
-        //console.log(parsetext);
-        geojsonFeature = JSON.parse(parsetext);
-        myLayer.addData(geojsonFeature);
-}
-}
+        var pophttp = new XMLHttpRequest();
+        var popurl = 'https://api.zotero.org/users/2338633/items/'+ arr[i].data.key +'?format=bib&v=3';
+                
+        parsetext = '[{"type": "Feature", "properties":{"key": "' + arr[i].data.key + '", "popupContent": "<iframe src= '+ popurl + '></> + "}, "geometry":' + arr[i].data.extra + '}]';
+        var geojsonFeature = JSON.parse(parsetext);
+        
+        L.geoJson(geojsonFeature, {
+            pointToLayer: function (feature, latlng) {
+            return L.circleMarker(latlng, {
+            radius: 4,
+            fillOpacity: 1
+            }).bindPopup(feature.properties.popupContent);
+                }
+            }).addTo(myLayer);
+        }};
 
+
+
+
+//myLayer.bindPopup().openPopup();
+
+//myLayer().addTo(map1);
+/*
 function popupContent(feature, layer) {
     // does this feature have a property named popupContent?
     if (feature.properties && feature.properties.key) {
         //layer.bindPopup("Key: " + feature.properties.key);
-        
         var pophttp = new XMLHttpRequest();
         var popurl = 'https://api.zotero.org/users/2338633/items/'+ feature.properties.key +'?format=bib&v=3';
         pophttp.open("GET", popurl, true);
@@ -114,10 +128,10 @@ function popupContent(feature, layer) {
         layer.bindPopup(pophttp.responseText);
     }
 }
-//myLayer(onEachFeature: popupContent).addTo(map1);
 myLayer.options={
-onEachFeature: popupContent};
-
+onEachFeature: function (feature, layer) {
+        layer.bindPopup(feature.properties.description)};};
+*/
 /*
 
 
