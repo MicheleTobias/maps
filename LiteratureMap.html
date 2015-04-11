@@ -91,15 +91,18 @@ xmlhttp.send();
 
 function myFunction(arr) {
     var geojsonFeature;
+    var parsetext;
     var i;
-    for(i = 0; i < arr.length; i++) {
-        geojsonFeature = JSON.parse(arr[i].data.extra);
+    for(i = 0; i < arr.length; i++) { 
+        parsetext = '[{"type": "Feature", "properties":{"key": "' + arr[i].data.key + '"}, "geometry":' + arr[i].data.extra + '}]';
+        console.log(parsetext);
+        geojsonFeature = JSON.parse(parsetext);
+        
         // make marker using "out" as variable
         myLayer.addData(geojsonFeature);
-    }
     // prints with: document.getElementById("map1").innerHTML = out;
 }
-
+}
 
 /*
 
