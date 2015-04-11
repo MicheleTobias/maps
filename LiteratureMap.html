@@ -71,7 +71,7 @@ isolate the zotero geometry extra
 pass zotero geometry to the map
 
 */
-var map1 = L.map('map1').setView([37, -119.5], 5);
+var map1 = L.map('map1').setView([34.125662173298586, -119.16863831297933], 8);
 
 var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map1);
 //var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.png').addTo(map1);
@@ -89,20 +89,34 @@ xmlhttp.onreadystatechange = function() {
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
 
+var geojsonFeature;
+
 function myFunction(arr) {
-    var geojsonFeature;
     var parsetext;
     var i;
     for(i = 0; i < arr.length; i++) { 
         parsetext = '[{"type": "Feature", "properties":{"key": "' + arr[i].data.key + '"}, "geometry":' + arr[i].data.extra + '}]';
-        console.log(parsetext);
+        //console.log(parsetext);
         geojsonFeature = JSON.parse(parsetext);
-        
-        // make marker using "out" as variable
         myLayer.addData(geojsonFeature);
-    // prints with: document.getElementById("map1").innerHTML = out;
 }
 }
+
+function popupContent(feature, layer) {
+    // does this feature have a property named popupContent?
+    if (feature.properties && feature.properties.key) {
+        //layer.bindPopup("Key: " + feature.properties.key);
+        
+        var pophttp = new XMLHttpRequest();
+        var popurl = 'https://api.zotero.org/users/2338633/items/'+ feature.properties.key +'?format=bib&v=3';
+        pophttp.open("GET", popurl, true);
+        //var popparse = JSON.parse(pophttp.responseText);
+        layer.bindPopup(pophttp.responseText);
+    }
+}
+//myLayer(onEachFeature: popupContent).addTo(map1);
+myLayer.options={
+onEachFeature: popupContent};
 
 /*
 
