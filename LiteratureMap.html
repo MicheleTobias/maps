@@ -54,6 +54,9 @@ td {
 <section>
 <h3>Introduction</h3>
 <p> <strong>Coming soon!</strong>  A description of what this map shows <strong>PLUS!</strong> how you can use it, contribute, and donate! </p>
+<p> What you currently see on this page is a proof-of-concept.  The locations are made up and assigned at random to the citations.  A real map is coming real soon.  Pinky swear.
+
+<p>Contributors: Alex Mandel</p>
 </section>
 
 <section>
@@ -63,14 +66,6 @@ td {
 <script src="js/leaflet.groupedlayercontrol.js"></script>
 <script type="text/javascript">
 
-/* PSUEDO CODE!!!
-var zoterodata = some magic to make the zotero api return into a useable object
-
-isolate the zotero geometry extra
-
-pass zotero geometry to the map
-
-*/
 var map1 = L.map('map1').setView([34.125662173298586, -119.16863831297933], 8);
 
 var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map1);
@@ -110,90 +105,10 @@ function myFunction(arr) {
             }).addTo(myLayer);
         }};
 
-
-
-
-//myLayer.bindPopup().openPopup();
-
-//myLayer().addTo(map1);
-/*
-function popupContent(feature, layer) {
-    // does this feature have a property named popupContent?
-    if (feature.properties && feature.properties.key) {
-        //layer.bindPopup("Key: " + feature.properties.key);
-        var pophttp = new XMLHttpRequest();
-        var popurl = 'https://api.zotero.org/users/2338633/items/'+ feature.properties.key +'?format=bib&v=3';
-        pophttp.open("GET", popurl, true);
-        //var popparse = JSON.parse(pophttp.responseText);
-        layer.bindPopup(pophttp.responseText);
-    }
-}
-myLayer.options={
-onEachFeature: function (feature, layer) {
-        layer.bindPopup(feature.properties.description)};};
-*/
-/*
-
-
-var geojsonFeature = {"type": "Point", "coordinates": [ -119.2827956735272, 34.271088016469697 ] }
-}
-
-/*
-var responseContainer = document.getElementById('map1');
-var zoteroData = new XMLHttpRequest();
-var zoteroAPI = 'https://api.zotero.org/users/2338633/items/search/tag=Map?v=3';
-zoteroData.open("GET", zoteroAPI, false);
-zoteroData.send();
-map1.innerHTML = zoteroData.responseText;
-*/
-
-/*
-var myLayer = L.geoJson().addTo(map1);
-myLayer.addData(geojsonFeature);
-
-/*
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    maxZoom: 9
-}).addTo(map1);
-
-
-
-
-// Add the Base Layers (tiles)
-var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
-var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.png');
-
-// make the map
-var map1 = L.map('map1', {
-    center:[37, -119.5], 
-    zoom: 5,
-    layers: [watercolor, myLayer]
-    });
-
-var baseLayers = {
-"OSM": osm,
-"Watercolor": watercolor
-};
-*/
 </script>
 </div>
 </p>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
