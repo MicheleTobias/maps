@@ -1,0 +1,27 @@
+-- Add a column to the shapefile for the JSON string 
+UPDATE locations SET json = ('{"type": "Point", "coordinates": [' || X(Geometry) || ', ' || Y(Geometry) || ']}');
+
+-- add column to shapefile for itemID
+update locations set itemID = (
+select itemID
+from items
+where locations.ZoteroKey = items.key);
+
+-- put the json column from the shapefile into the values field for the itemDataValues (the stuff in the citation)
+INSERT INTO itemDataValues (value)
+SELECT distinct(json)
+FROM locations;
+
+-- add column for fieldID then fill it with 22 which means "extra"
+ALTER TABLE locations add column fieldID;
+update locations set fieldID = 22;
+
+-- update the itemData table so the json/geometries in the itemDataValues table is accessable
+INSERT INTO itemData (itemID, fieldID, valueID)
+SELECT locations.itemID, locations.fieldID, itemDataValues.valueID
+FROM locations
+JOIN itemDataValues
+ON locations.json = itemDataValues.value;
+
+
+
