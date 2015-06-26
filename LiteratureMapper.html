@@ -61,15 +61,27 @@
 
 <h4>Use</h4>
 
-<h5>Find your Keys</h5>
-<p>Literature Mapper works with an online Zotero Databse.  You can connect your local Zotero databse to an online account.  You will need to find your user ID, the collection ID for the collection of citations you would like to use with Literature Mapper, and your API key.
-</p>
-<p> Your user ID and your API key can be found or created at <a hfre: "https://www.zotero.org/settings/keys">https://www.zotero.org/settings/keys</a>. The collection key can be found by navigating to the library in your online account (My Library tab --> click on the library name in the left navigation bar) and finding the alphanumeric character string at the end of the URL.
-</p>
-
 <h5>Start the Literature Mapper Plugin</h5>
+<p>To start the Literatue Mapper Plugin, click the icon in your toolbar or find the Literature Mapper icon on the Plugins Menu.</p>
+
 <h5>Interface 1: Access Keys</h5>
+<p>Literature Mapper works with an online Zotero Databse.  You can connect your local Zotero databse to an online account.  You will need to find your user ID, the collection ID for the collection of citations you would like to use with Literature Mapper, and your API key.</p>
+
+<p> Your <strong>user ID</strong> and your <strong>API key</strong> can be found or created at <a hfre: "https://www.zotero.org/settings/keys">https://www.zotero.org/settings/keys</a>. The <strong>collection key</strong> can be found by navigating to the library in your online account (My Library tab --> click on the library name in the left navigation bar) and finding the alphanumeric character string at the end of the URL.</p>
+
+<p>Enter each key into their respective text boxes - just the alphanumeric keys, no punctuation such as quotes - and click "ok".  The program will check the keys you entered with Zotero.  If the keys are recognized, the next window will open.  If there is any error, a message bar will show at the top of the map canvas window.  If you receive an error, check that you entered your keys correctly and check to see that Zotero's online system is functioning.  You do not need to be logged into your Zotero Online account for Literature Mapper to work, but checking to see that it is available can rule out an error caused by Zotero not being online.</p>
+
+
 <h5>Interface 2: Enter Locations</h5>
+<p>In the mapping interface, the table should be populated with information from the Zotero collection you entered earlier.  (You should not edit any column except the Geometry column.  In future updates, only the Geometry column will be editable.)  </p>
+<p>To add a location to a record, click on the record you want to update, then click its location on the map canvas.  You should see that the text in the Geometry column has been updated to look something like this: <code>{"type": "Point", "coordinates": [-140.504592652, 37.1942567162]}</code>.  Add locations to as many records as you would like.  When you are done, click the "Save to Zotero" button.  Because the only method of saving your work is by saving changes to Zotero, you may want to save frequently as you work.  Changes not saved to Zotero will not be saved in the case of a crash.  Saving may take several minutes if you have many records.  The program will alert you that it has finished saving with a banner at the top of the map canvas in the main QGIS window.</p>
+
+<p>Known Trouble Spots:</p>
+<ul>
+<li>If you have text entered into the Extra field in your Zotero database, Literature Mapper will overwrite these because it uses the Extra field to store the geometries.  If you want to keep this information, you will need to move it to a different field (perhaps a Note) before you save anything with Literature Mapper.  Future versions of Zotero may make creating other fields (such as a geometry field) possible, but for now, we use the Extra field.</li>
+<li>If the Title column has the name of your saved PDF instead of the actual name of the article, check to see if your database has attached documents.  In some cases, attached documents can cause the databse to use the file name (such as FullText.pdf) instead of the article name you entered.  Remove them using your regular Zotero tools.</li>
+</ul>
+
 <h5>Recommended Citation</h5>
 <p id = "citation">Tobias, M.M., and A.I. Mandel.  2015.  Literature Mapper.  QGIS Plugin.  https://github.com/MicheleTobias/LiteratureMapper/blob/master/literature_mapper.py </p>
 
