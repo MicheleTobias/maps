@@ -42,8 +42,7 @@
 <h3>
 <a id="rather-drive-stick" class="anchor" href="#rather-drive-stick" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h3>
 
-<p>Literature Mapper is a plugin for QGIS that inserts geoJSON geometry strings into an online Zotero database to facilitate the mapping of study site locations.  My <a hfref = "LiteratureMap.html">Literature Map</a> is an example of a map that has benefitted from this tool.</p>
-<p><strong>What it doesn't do yet</strong> is show the locations of the literature.  Currently, it adds the geometries to your database so you can keep track of locations along side your citations.  The geometries can be accessed for use in a web map via the Zotero API.  Future updates will likely include visualization and shapefile creation capabilities.  It also can only insert point geometries at present.  Expanding geomety options is also forthcoming.</p>
+<p>Literature Mapper is a plugin for QGIS that inserts geoJSON geometry strings into an online Zotero database to facilitate the mapping of study site locations.  My <a hfref = "LiteratureMap.html">Literature Map</a> is an example of a map that has benefitted from this tool.  The locations stored in the database are displayed on the map canvas in virtual point and multipoint shapefiles on start up.</p>
 
 <p><strong>Credits:</strong> Literature Mapper is developed by Michele Tobias and Alex Mandel.
 </section>
@@ -57,15 +56,18 @@
 </p>
 
 <h4>Download & Install</h4>
-<p>Download Literature Mapper at the <a href= "https://github.com/MicheleTobias/LiteratureMapper">GitHub repository for the project</a> and place it in your QGIS plugins folder.  When you start QGIS, it should be available on the Installed Plugins menu of the Manage and Install Plugins tool (find this in the Plugins Menu).</p>
+<p>Literature Mapper will soon be available as an experimental plugin in the QGIS Manage & Install Plugins interface.</p>  
+<p>Alternatively, you may download Literature Mapper at the <a href= "https://github.com/MicheleTobias/LiteratureMapper">GitHub repository for the project</a> and place it in your QGIS plugins folder.  When you start QGIS, it should be available on the Installed Plugins menu of the Manage and Install Plugins tool (find this in the Plugins Menu).</p>
 
 <h4>Use</h4>
 
 <h5>Start the Literature Mapper Plugin</h5>
 <p>To start the Literatue Mapper Plugin, click the icon in your toolbar or find the Literature Mapper icon on the Plugins Menu.</p>
+<code>[Photo: Literatue Mapper icon in QGIS]</code>
 
 <h5>Interface 1: Access Keys</h5>
 <p>Literature Mapper works with an online Zotero Databse.  You can connect your local Zotero databse to an online account.  You will need to find your user ID, the collection ID for the collection of citations you would like to use with Literature Mapper, and your API key.</p>
+<code>[Photo: Keys Interface]</code>
 
 <p> Your <strong>user ID</strong> and your <strong>API key</strong> can be found or created at <a hfre: "https://www.zotero.org/settings/keys">https://www.zotero.org/settings/keys</a>. The <strong>collection key</strong> can be found by navigating to the library in your online account (My Library tab --> click on the library name in the left navigation bar) and finding the alphanumeric character string at the end of the URL.</p>
 
@@ -74,17 +76,35 @@
 
 <h5>Interface 2: Enter Locations</h5>
 <p>In the mapping interface, the table should be populated with information from the Zotero collection you entered earlier.  (You should not edit any column except the Geometry column.  In future updates, only the Geometry column will be editable.)  </p>
-<p>To add a location to a record, click on the record you want to update, then click its location on the map canvas.  You should see that the text in the Geometry column has been updated to look something like this: <code>{"type": "Point", "coordinates": [-140.504592652, 37.1942567162]}</code>.  Add locations to as many records as you would like.  When you are done, click the "Save to Zotero" button.  Because the only method of saving your work is by saving changes to Zotero, you may want to save frequently as you work.  Changes not saved to Zotero will not be saved in the case of a crash.  Saving may take several minutes if you have many records.  The program will alert you that it has finished saving with a banner at the top of the map canvas in the main QGIS window.</p>
+<code>[Photo: Table Interface]</code>
 
-<p>Known Trouble Spots:</p>
+<h6>Add Point Locations</h6>
+<p>To add a location to a record, click on the record you want to update.  Click the Point button in the table, then click its location on the map canvas.  You should see that the text in the Geometry column has been updated to look something like this: <code>{"type": "Point", "coordinates": [-140.504592652, 37.1942567162]}</code>.  Add locations to as many records as you would like.  </p>
+
+<h6>Add Multipoint Locations</h6>
+<p>Adding a multipoint is ideal for literature that has more than one point location associated with it, as is often the case with studies that compared multiple sampling locations.  To add a multipoint location to a record, click the record you want to update.  Next, click the Multipoint button in the table, then click the locations for this record on the map canvas.</p>
+
+<h6>Saving</h6>
+<p>When you are done, click the "Save to Zotero" button.  Because the only method of saving your work is by saving changes to Zotero, you may want to save frequently as you work.  Changes not saved to Zotero will not be saved in the case of a crash.  Saving may take several minutes if you have many records.  The program will alert you that it has finished saving with a banner at the top of the map canvas in the main QGIS window.</p>
+
+<h5>Virtual Shapefiles</h5>
+<p>On start up, the plugin will scan your Zotero database to look for locations you've previously entered.  When it finds them, it sorts the locations into either a point or multipoint virtual shapefile.  If you would like to keep these shapefiles, right click on the file in the Layers List, then select Save As.  Currently, the shapefiles don't update in real time as you edit, although this is on the list of future upgrades.  To referesh the shapefiles, you need to restart the plugin. </p>
+
+<h4>Planned Upgrades:</h4>
+<ul>
+<li>Automatic updating of the virtual shapefiles while editing.</li>
+<li>Allow panning and zooming between the addition of points in a multipoint record.</li>
+<li>Improve saving time.</li>
+</ul>
+
+<h4>Known Trouble Spots:</h4>
 <ul>
 <li>LiteratureMapper records coordinates in the units of your project's coordinate system at the time you mark them.  This means within your Zotero database, you can have points recorded in multiple projections if you don't plan ahead.  This will be fixed in future releases.</li>
 <li>If you have text entered into the Extra field in your Zotero database, Literature Mapper will overwrite these because it uses the Extra field to store the geometries.  If you want to keep this information, you will need to move it to a different field (perhaps a Note) before you save anything with Literature Mapper.  Future versions of Zotero may make creating other fields (such as a geometry field) possible, but for now, we use the Extra field.</li>
 <li>If the Title column has the name of your saved PDF instead of the actual name of the article, check to see if your database has attached documents.  In some cases, attached documents can cause the databse to use the file name (such as FullText.pdf) instead of the article name you entered.  Remove them using your regular Zotero tools.</li>
-<li>When you use pan and zoom tools, users are unable to record points again in LiteratureMapper.  Closing and restarting the plugin will restore point recording ability (but we recognize that this is annoying).  It will be improved in future releases.</li>
 </ul>
 
-<h5>Recommended Citation</h5>
+<h4>Recommended Citation</h4>
 <p id = "citation">Tobias, M.M., and A.I. Mandel.  2015.  Literature Mapper.  QGIS Plugin.  https://github.com/MicheleTobias/LiteratureMapper/blob/master/literature_mapper.py </p>
 
 <p>Further documentation is coming soon!</p>
