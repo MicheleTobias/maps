@@ -41,7 +41,7 @@
 <section>
 <h3>
 <a id="rather-drive-stick" class="anchor" href="#rather-drive-stick" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h3>
-
+<img src="images/icon.png" style="float:left; padding: 10px; width:50px;height:50px">
 <p>Literature Mapper is a plugin for QGIS that inserts geoJSON geometry strings into an online Zotero database to facilitate the mapping of study site locations.  My <a hfref = "LiteratureMap.html">Literature Map</a> is an example of a map that has benefitted from this tool.  The locations stored in the database are displayed on the map canvas in virtual point and multipoint shapefiles on start up.</p>
 
 <p><strong>Credits:</strong> Literature Mapper is developed by Michele Tobias and Alex Mandel.
@@ -63,11 +63,11 @@
 
 <h5>Start the Literature Mapper Plugin</h5>
 <p>To start the Literatue Mapper Plugin, click the icon in your toolbar or find the Literature Mapper icon on the Plugins Menu.</p>
-<code>[Photo: Literatue Mapper icon in QGIS]</code>
+<img src="images/LiteratureMapper_IconLocation.png" style=" padding: 10px">
 
 <h5>Interface 1: Access Keys</h5>
 <p>Literature Mapper works with an online Zotero Databse.  You can connect your local Zotero databse to an online account.  You will need to find your user ID, the collection ID for the collection of citations you would like to use with Literature Mapper, and your API key.</p>
-<code>[Photo: Keys Interface]</code>
+<img src="images/LiteratureMapper_KeysInterface.JPG" style=" padding: 10px">
 
 <p> Your <strong>user ID</strong> and your <strong>API key</strong> can be found or created at <a hfre: "https://www.zotero.org/settings/keys">https://www.zotero.org/settings/keys</a>. The <strong>collection key</strong> can be found by navigating to the library in your online account (My Library tab --> click on the library name in the left navigation bar) and finding the alphanumeric character string at the end of the URL.</p>
 
@@ -76,7 +76,7 @@
 
 <h5>Interface 2: Enter Locations</h5>
 <p>In the mapping interface, the table should be populated with information from the Zotero collection you entered earlier.  (You should not edit any column except the Geometry column.  In future updates, only the Geometry column will be editable.)  </p>
-<code>[Photo: Table Interface]</code>
+<img src="images/LiteratureMapper_TableInterface.JPG" style=" padding: 10px">
 
 <h6>Add Point Locations</h6>
 <p>To add a location to a record, click on the record you want to update.  Click the Point button in the table, then click its location on the map canvas.  You should see that the text in the Geometry column has been updated to look something like this: <code>{"type": "Point", "coordinates": [-140.504592652, 37.1942567162]}</code>.  Add locations to as many records as you would like.  </p>
@@ -89,6 +89,7 @@
 
 <h5>Virtual Shapefiles</h5>
 <p>On start up, the plugin will scan your Zotero database to look for locations you've previously entered.  When it finds them, it sorts the locations into either a point or multipoint virtual shapefile.  If you would like to keep these shapefiles, right click on the file in the Layers List, then select Save As.  Currently, the shapefiles don't update in real time as you edit, although this is on the list of future upgrades.  To referesh the shapefiles, you need to restart the plugin. </p>
+<img src="images/LiteratureMapper_Shapefiles.JPG" style=" padding: 10px">
 
 <h4>Planned Upgrades:</h4>
 <ul>
