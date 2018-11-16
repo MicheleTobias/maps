@@ -52,7 +52,7 @@
 <h3>
 <a id="rather-drive-stick" class="anchor" href="#rather-drive-stick" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h3>
 <h4>Recommedations & Disclaimer</h4>
-<p>Literature Mapper is an experimental plugin for QGIS.  The developers of Literature Mapper make no guarantees that the program will function as intended.  Because the program may alter your database in unexpected ways, it is highly recommended that you back up your Zotero databse before you alter it with Literature Mapper.
+<p>Literature Mapper is an experimental plugin for QGIS 2.x and 3.x.  The developers of Literature Mapper make no guarantees that the program will function as intended.  Because the program may alter your database in unexpected ways, it is highly recommended that you back up your Zotero database before you alter it with Literature Mapper.
 </p>
 
 <h4>Download & Install</h4>
@@ -66,10 +66,10 @@
 <img src="images/LiteratureMapper_IconLocation.png" style=" padding: 10px">
 
 <h5>Interface 1: Access Keys</h5>
-<p>Literature Mapper works with an online Zotero Databse.  You can connect your local Zotero databse to an online account.  You will need to find your user ID, the collection ID for the collection of citations you would like to use with Literature Mapper, and your API key.</p>
+<p>Literature Mapper works with an online Zotero Database.  You can connect your local Zotero database to an online account.  You will need to find your user ID, the collection ID for the collection of citations you would like to use with Literature Mapper, and your API key.</p>
 <img src="images/LiteratureMapper_KeysInterface.JPG" style=" padding: 10px">
 
-<p> Your <strong>user ID</strong> and your <strong>API key</strong> can be found or created at <a hfre: "https://www.zotero.org/settings/keys">https://www.zotero.org/settings/keys</a>. The <strong>collection key</strong> can be found by navigating to the library in your online account (My Library tab --> click on the library name in the left navigation bar) and finding the alphanumeric character string at the end of the URL.</p>
+<p> Your <strong>user ID</strong> and your <strong>API key</strong> can be found or created at <a href = "https://www.zotero.org/settings/keys">https://www.zotero.org/settings/keys</a>. The <strong>collection key</strong> can be found by navigating to the library in your online account (My Library tab --> click on the library name in the left navigation bar) and finding the alphanumeric character string at the end of the URL.</p>
 
 <p>Enter each key into their respective text boxes - just the alphanumeric keys, no punctuation such as quotes - and click "ok".  The program will check the keys you entered with Zotero.  If the keys are recognized, the next window will open.  If there is any error, a message bar will show at the top of the map canvas window.  If you receive an error, check that you entered your keys correctly and check to see that Zotero's online system is functioning.  You do not need to be logged into your Zotero Online account for Literature Mapper to work, but checking to see that it is available can rule out an error caused by Zotero not being online.</p>
 
@@ -99,10 +99,13 @@
 </ul>
 
 <h4>Known Trouble Spots:</h4>
+<p>Issues are tracked on the GitHub repository's <a href = "https://github.com/MicheleTobias/LiteratureMapper/issues">Issues tab</a>. Here are some known issues with Literature Mapper that may cause you some trouble. We're working on these and encourage you to file other issues on the issue tracker.
 <ul>
 <li>LiteratureMapper records coordinates in the units of your project's coordinate system at the time you mark them.  This means within your Zotero database, you can have points recorded in multiple projections if you don't plan ahead.  This will be fixed in future releases.</li>
 <li>If you have text entered into the Extra field in your Zotero database, Literature Mapper will overwrite these because it uses the Extra field to store the geometries.  If you want to keep this information, you will need to move it to a different field (perhaps a Note) before you save anything with Literature Mapper.  Future versions of Zotero may make creating other fields (such as a geometry field) possible, but for now, we use the Extra field.</li>
-<li>If the Title column has the name of your saved PDF instead of the actual name of the article, check to see if your database has attached documents.  In some cases, attached documents can cause the databse to use the file name (such as FullText.pdf) instead of the article name you entered.  Remove them using your regular Zotero tools.</li>
+<li>If the Title column has the name of your saved PDF instead of the actual name of the article, check to see if your database has attached documents.  In some cases, attached documents can cause the database to use the file name (such as FullText.pdf) instead of the article name you entered.  Remove them using your regular Zotero tools.</li>
+<li>Version 0.3 (released 2018-11-15) fails on dates that are not four digit years (example: 2018 works but 2018-11-15 does not).</li>
+<li>Version 0.3 fails when you have a pdf linked to a citation. This will be fixed in an upcoming release and is currently available in the development version on github.</li>
 </ul>
   
 <h4>Works Citing LiteratureMapper</h4>
