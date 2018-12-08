@@ -91,6 +91,16 @@
 <p>On start up, the plugin will scan your Zotero database to look for locations you've previously entered.  When it finds them, it sorts the locations into either a point or multipoint virtual shapefile.  If you would like to keep these shapefiles, right click on the file in the Layers List, then select Save As.  Currently, the shapefiles don't update in real time as you edit, although this is on the list of future upgrades.  To referesh the shapefiles, you need to restart the plugin. </p>
 <img src="images/LiteratureMapper_Shapefiles.JPG" style=" padding: 10px">
 
+<h4>Updates in Version 0.3.1</h4>
+<ul>
+<li>The coordinate reference system has been set to WGS 84 (EPSG 4326), which is standard for geojson.</li>
+<li>Attachments and Notes are now ignored by Literature Mapper and should no longer cause a crash.</li>
+<li>All date formats are accepted because the code converts any date to text currently.  Future updates should include more sophisticated date handling.</li>
+<li>Collections longer than 100 entries now display in their entirety in the Literature Mapper table (not just 100 records).</li>
+
+</ul>
+
+
 <h4>Planned Upgrades:</h4>
 <ul>
 <li>Automatic updating of the virtual shapefiles while editing.</li>
@@ -101,19 +111,16 @@
 <h4>Known Trouble Spots:</h4>
 <p>Issues are tracked on the GitHub repository's <a href = "https://github.com/MicheleTobias/LiteratureMapper/issues">Issues tab</a>. Here are some known issues with Literature Mapper that may cause you some trouble. We're working on these and encourage you to file other issues on the issue tracker.
 <ul>
-<li>LiteratureMapper records coordinates in the units of your project's coordinate system at the time you mark them.  This means within your Zotero database, you can have points recorded in multiple projections if you don't plan ahead.  This will be fixed in future releases.</li>
 <li>If you have text entered into the Extra field in your Zotero database, Literature Mapper will overwrite these because it uses the Extra field to store the geometries.  If you want to keep this information, you will need to move it to a different field (perhaps a Note) before you save anything with Literature Mapper.  Future versions of Zotero may make creating other fields (such as a geometry field) possible, but for now, we use the Extra field.</li>
-<li>If the Title column has the name of your saved PDF instead of the actual name of the article, check to see if your database has attached documents.  In some cases, attached documents can cause the database to use the file name (such as FullText.pdf) instead of the article name you entered.  Remove them using your regular Zotero tools.</li>
-<li>Version 0.3 (released 2018-11-15) fails on dates that are not four digit years (example: 2018 works but 2018-11-15 does not).</li>
-<li>Version 0.3 fails when you have a pdf linked to a citation. This will be fixed in an upcoming release and is currently available in the development version on github.</li>
+
 </ul>
   
 <h4>Works Citing LiteratureMapper</h4>
 <p id= "citation"> Goldstein et al. (2018), Literature-based latitudinal distribution and possible range shifts of two US east coast dune
 grass species (Uniola paniculata and Ammophila breviligulata). PeerJ 6:e4932; DOI 10.7717/peerj.4932  https://peerj.com/articles/4932.pdf </p>
 
-<h4>Recommended Citation</h4>
-<p id = "citation">Tobias, M.M., and A.I. Mandel.  2015.  Literature Mapper.  QGIS Plugin.  https://github.com/MicheleTobias/LiteratureMapper/blob/master/literature_mapper.py </p>
+<h4>Suggested Citation</h4>
+<p id = "citation">Tobias, M.M., and A.I. Mandel.  2018.  Literature Mapper. Version 0.3.1.  QGIS Plugin.  https://github.com/MicheleTobias/LiteratureMapper/blob/master/literature_mapper.py </p>
 
 
 </section>
