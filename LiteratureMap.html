@@ -85,7 +85,7 @@ function myFunction(arr) {
         var pophttp = new XMLHttpRequest();
         var popurl = 'https://api.zotero.org/users/2338633/items/'+ arr[i].data.key +'?format=bib&v=3';
 		var extratext = arr[i].data.extra;
-		var extrageom = extratext.substr(extratext.search("<geojson>")+9, (extratext.search("</\\geojson>")-extratext.search("<geojson>"))-9) + '}';
+		var extrageom = extratext.substr(extratext.search("<geojson>")+9, (extratext.search("</\\geojson>")-extratext.search("<geojson>"))-9);
                 
         parsetext = '[{"type": "Feature", "properties":{"key": "' + arr[i].data.key + '", "popupContent": "<iframe src= '+ popurl + '></> + "}, "geometry":' + extrageom + '}]';
         var geojsonFeature = JSON.parse(parsetext);
