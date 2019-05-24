@@ -65,7 +65,7 @@ attribution: '&amp; OpenStreetMap'}).addTo(map1);
 //var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.png').addTo(map1);
 
 
-
+/*
 //add points
 var myLayer = L.geoJson().addTo(map1);
 var xmlhttp = new XMLHttpRequest();
@@ -113,6 +113,45 @@ var url = 'https://api.zotero.org/users/2338633/collections/YSXJTZRS/items?v=3';
 xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         var myArr = JSON.parse(xmlhttp.responseText);
+        MultiPointsFunction(myArr);
+    }
+}
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+
+function MultiPointsFunction(arr) {
+    var parsetext;
+    var i;
+    for(i = 0; i < arr.length; i++) { 
+        var pophttp = new XMLHttpRequest();
+        var popurl = 'https://api.zotero.org/users/2338633/items/'+ arr[i].data.key +'?format=bib&v=3';
+		var extratext = arr[i].data.extra;
+		var extrageom = extratext.substr(extratext.search("coordinates")+14, (extratext.search("}</\\geojson>")-extratext.search("coordinates"))-14);
+                
+        parsetext = '{"type": "Feature", "properties":{"key": "' + arr[i].data.key + '", "popupContent": "<iframe src= '+ popurl + '></> + "}, "geometry": {"type": "MultiPoint", "coordinates":' + extrageom + '}}';
+        var geojsonFeatureMultiPoints = JSON.parse(parsetext);
+        
+        L.geoJson(geojsonFeatureMultiPoints, {
+            pointToLayer: function (feature, latlng) {
+            return L.circleMarker(latlng, {
+            radius: 4,
+            fillOpacity: 1
+            }).bindPopup(feature.properties.popupContent);
+                }
+            }).addTo(myLayer);
+        }};
+*/
+
+
+//all the points with if statement
+var myLayer = L.geoJson().addTo(map1);
+var xmlhttp = new XMLHttpRequest();
+var url = 'https://api.zotero.org/users/2338633/collections/YSXJTZRS/items?v=3';
+
+xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        var myArr = JSON.parse(xmlhttp.responseText);
         myFunction(myArr);
     }
 }
@@ -127,21 +166,44 @@ function myFunction(arr) {
         var pophttp = new XMLHttpRequest();
         var popurl = 'https://api.zotero.org/users/2338633/items/'+ arr[i].data.key +'?format=bib&v=3';
 		var extratext = arr[i].data.extra;
-		var extrageom = extratext.substr(extratext.search("coordinates")+14, (extratext.search("}</\\geojson>")-extratext.search("coordinates"))-14);
-                
-        parsetext = '{"type": "Feature", "properties":{"key": "' + arr[i].data.key + '", "popupContent": "<iframe src= '+ popurl + '></> + "}, "geometry": {"type": "MultiPoint", "coordinates":' + extrageom + '}}';
-        var geojsonFeature = JSON.parse(parsetext);
+		var pointtype = extratext.substr(extratext.search('"type":')+9, 1);
+		console.log(pointtype)
+		
+		if (pointtype == 'P'){
+			var extrageom = extratext.substr(extratext.search("<geojson>")+9, (extratext.search("</\\geojson>")-extratext.search("<geojson>"))-9);
+			
+			console.log(extrageom)
+		
+		    parsetext = '{"type": "Feature", "properties":{"key": "' + arr[i].data.key + '", "popupContent": "<iframe src= '+ popurl + '></> + "}, "geometry":' + extrageom + '}';
+			
+			console.log(parsetext)
         
-        L.geoJson(geojsonFeature, {
-            pointToLayer: function (feature, latlng) {
-            return L.circleMarker(latlng, {
-            radius: 4,
-            fillOpacity: 1
-            }).bindPopup(feature.properties.popupContent);
-                }
-            }).addTo(myLayer);
+			var geojsonFeature = JSON.parse(parsetext);
+        
+			L.geoJson(geojsonFeature, {
+				pointToLayer: function (feature, latlng) {
+				return L.circleMarker(latlng, {
+				radius: 4,
+				fillOpacity: 1
+				}).bindPopup(feature.properties.popupContent);
+					}
+				}).addTo(myLayer);
+		} else {
+			var extrageom = extratext.substr(extratext.search("coordinates")+14, (extratext.search("}</\\geojson>")-extratext.search("coordinates"))-14);
+                
+			parsetext = '{"type": "Feature", "properties":{"key": "' + arr[i].data.key + '", "popupContent": "<iframe src= '+ popurl + '></> + "}, "geometry": {"type": "MultiPoint", "coordinates":' + extrageom + '}}';
+			var geojsonFeatureMultiPoints = JSON.parse(parsetext);
+        
+			L.geoJson(geojsonFeatureMultiPoints, {
+				pointToLayer: function (feature, latlng) {
+				return L.circleMarker(latlng, {
+				radius: 4,
+				fillOpacity: 1
+				}).bindPopup(feature.properties.popupContent);
+					}
+				}).addTo(myLayer);
+			}          
         }};
-
 
 
 </script>
