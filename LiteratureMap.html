@@ -103,7 +103,7 @@ function myFunction(arr) {
             }).addTo(myLayer);
         }};
 
-/*
+
 //add multipoints
 var myLayer = L.geoJson().addTo(map1);
 var xmlhttp = new XMLHttpRequest();
@@ -113,42 +113,36 @@ var url = 'https://api.zotero.org/users/2338633/collections/YSXJTZRS/items?v=3';
 xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         var myArr = JSON.parse(xmlhttp.responseText);
-        myMultipoints(myArr);
+        myFunction(myArr);
     }
 }
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
 
 
-function myMultipoints(arr) {
+function myFunction(arr) {
     var parsetext;
     var i;
     for(i = 0; i < arr.length; i++) { 
         var pophttp = new XMLHttpRequest();
         var popurl = 'https://api.zotero.org/users/2338633/items/'+ arr[i].data.key +'?format=bib&v=3';
 		var extratext = arr[i].data.extra;
-		var extrageom = extratext.substr(extratext.search("<geojson>")+9, (extratext.search("</\\geojson>")-extratext.search("<geojson>"))-9);
+		var extrageom = extratext.substr(extratext.search("coordinates")+14, (extratext.search("}</\\geojson>")-extratext.search("coordinates"))-14);
                 
-        parsetext = '{"type": "Feature", "properties":{"key": "' + arr[i].data.key + '", "popupContent": "<iframe src= '+ popurl + '></> + "}, "geometry": '+ extrageom +'}';
+        parsetext = '{"type": "Feature", "properties":{"key": "' + arr[i].data.key + '", "popupContent": "<iframe src= '+ popurl + '></> + "}, "geometry": {"type": "MultiPoint", "coordinates":' + extrageom + '}}';
         var geojsonFeature = JSON.parse(parsetext);
         
-        L.geoJson(geojsonFeature).addTo(myLayer);
-        }};		
-*/
+        L.geoJson(geojsonFeature, {
+            pointToLayer: function (feature, latlng) {
+            return L.circleMarker(latlng, {
+            radius: 4,
+            fillOpacity: 1
+            }).bindPopup(feature.properties.popupContent);
+                }
+            }).addTo(myLayer);
+        }};
 
-//add multipoint test
-parsetexttest = '{"type": "Feature", "properties":{"key": "PLACEHOLDER"}, "geometry": {"type": "MultiPoint", "coordinates": [[-140.51885102520575, 37.33143374969282], [-140.47665006826793, 37.307318917156934],[-140.56406633621052, 37.273156237731094], [-140.45755915917704, 37.34951987409473]]}}';
 
-
-var multitest = JSON.parse(parsetexttest);
-
-var myStyle = {
-    "color": "#ff7800",
-    "weight": 10,
-    "opacity": 1.0
-};
-
-L.geoJson(multitest, {style: myStyle}).addTo(myLayer);
 
 </script>
 <!--</div> -->
