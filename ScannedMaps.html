@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+ <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+ <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+ <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+ <script src="js/leaflet.groupedlayercontrol.js" type="text/javascript"></script>
+ 
+
+<style>
+#map1 { height: 600px; width: 600px; margin-right: 5px; }
+#map2 { height: 650px; width: 260px; margin-right: 5px;}
+#map3 { height: 650px; width: 260px;}
+#attribution {
+  font: 12px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #555;}
+
+td {
+     text-align: center;
+     font-weight: bold;
+}
+
+
+
+</style>
+
+<title>Scanned Map Demo</title>
+
+</head>
+
+<body>
+<div class="wrapper">
+
+<header>
+    <a href="http://micheletobias.github.io/maps"> <img src="images/Logo_Squares_500x488px.png" alt="Tobias Research Logo" style="float:left; padding: 10px; width:100px;height:100px" /> </a>
+    <h1>Scanned Map</h1>
+	<h1>Demo</h1> 
+    <p>Michele M. Tobias, PhD</p>
+    <p>University of California, Davis</p>
+    <p>mmtobias[at]ucdavis.edu</p>
+    
+    <p class="view"><a href="https://github.com/MicheleTobias/maps">View the Project on GitHub <small>MicheleTobias/maps</small></a></p>
+        <ul>
+          <li><a href="https://github.com/MicheleTobias/maps">Project On <strong>GitHub</strong></a></li>
+          <li><a href="https://sites.google.com/site/mtobiasresearch/">Research <strong>Website</strong></a></li>
+        </ul>
+        
+</header>
+<section>
+<p class = "view">
+<div id="map1"></div>
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script src="js/leaflet.groupedlayercontrol.js"></script>
+<script type="text/javascript">
+
+var map1 = L.map('map1').setView([38.58, -121.5], 10);
+
+
+var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+attribution: '&amp; OpenStreetMap'}).addTo(map1);
+//var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.png').addTo(map1);
+
+var Sacramento1912 = L.imageOverlay('images/G4363Y6J41912M2.jpg', [[38.4836176415186344, -121.6010610169879840], [38.6747912749419598, -121.2310588462640624]]).addTo(map1);
+
+
+
+
+
+
+</script>
+<!--</div> -->
+</p>
+</section>
+<section>
+<h3>About This Map</h3>
+<p>While this map may look like your ordinary run-of-the-mill web map programmed in <a href='http://leafletjs.com/'>Leaflet</a>, it is actually a demonstration of something rather unique.  The data for the locations of the markers and the pop-ups are both coming from the <a href='http://zotero.org/'>Zotero Online</a> API.  "How is that possible?" you might be asking.  "Zotero doesn't have GIS capability or a place to store locations."  And you were right... until recently.  This map demonstrates the end result of a process of linking geographic locations (currently in the form of points, but soon I hope to incorporate other geometry possibilities as well) to the established Zotero database.  By uploading the geolocated citations to a Zotero Online account, the locations and the citation information is available to query online through Zotero's API.  Because Zotero's API returns data in JSON format, the information can be easily utilized in web maps.</p>
+<p>Why does it matter if Zotero can hold location information?  Being able to visualize the geographic location in which a study or group of studies was conducted can be a powerful tool in understanding research gaps and also determining which literature is really applicable to inform new studies.  I anticipate that online maps of literature will be very helpful for natural resource managers.</p>
+<p>The methods by which this map and the underlying database was built is described in a <a href='http://wp.me/p243ok-bx'>post at Experimental Craft</a>.</p>
+<p>Want to make your own?  Try <a href='http://micheletobias.github.io/maps/LiteratureMapper.html'>LiteratureMapper</a>, a QGIS plugin to georeference your Zotero entries.</p>
+<h3>Upcoming Features</h3>
+<ul>
+<li>Grouping points as scale changes</li>
+<li>QGIS plug-in interface for inputting spatial data</li>
+<li>More data points</li>
+<li>Allow users to add data to this map</li>
+</ul>
+<p><strong>Coming soon!</strong> how you can use it, contribute, and donate! </p>
+
+<p>Contributors: <a href = 'http://wildintellect.com/'>Alex Mandel</a></p>
+<p>Intern: Victoria Yu</p>
+
+</section>
+<section>
+<h3>Recommended Citation:</h3>
+<p id="citation"> Tobias, M.M. & A.I. Mandel.  2015. Beach Plant Literature Map.  http://micheletobias.github.io/maps/LiteratureMap.html </p>
+</section>
+
+
+
+
+
+</body>
