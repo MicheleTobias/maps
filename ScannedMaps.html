@@ -65,10 +65,13 @@ var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 attribution: '&amp; OpenStreetMap'}).addTo(map1);
 //var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.png').addTo(map1);
 
+var watercolor = L.tileLayer('http://b.tile.stamen.com/watercolor/{z}/{x}/{y}.png');
+
 var Sacramento1912 = L.imageOverlay('images/G4363Y6J41912M2.jpg', [[38.4836176415186344, -121.6010610169879840], [38.6747912749419598, -121.2310588462640624]]).addTo(map1);
 
 var baseMaps = {
-	"OpenStreetMap": osm
+	"OpenStreetMap": osm,
+	"Watercolor": watercolor
 };
 
 var scannedMaps = {
