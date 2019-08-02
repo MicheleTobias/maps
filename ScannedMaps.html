@@ -86,11 +86,17 @@ td {
 		<td>1912</td>
 		<td><a href="https://search.library.ucdavis.edu/permalink/f/t3kr8e/01UCD_ALMA21216601970003126">Map Collection Old Maps MAP G4363.Y6J4 1912 .M2 Drawer 1</a></td>
 	</tr>
-		<tr>
+	<tr>
 		<td><div id = 'maplink_grassvalley'><a href='javascript:void(0)'>Grass Valley Fire Districts</a></div></td>
 		<td>Grass Valley</td> 
 		<td>1908</td>
 		<td><a href="https://search.library.ucdavis.edu/permalink/f/t3kr8e/01UCD_ALMA21201586560003126">Map Collection Old Maps MAP G4364.G72G475 1908 .M4 Drawer 1</a></td>
+	</tr>
+	<tr>
+		<td><div id = 'maplink_sacramentovalley'><a href='javascript:void(0)'>Sacramento Valley of California</a></div></td>
+		<td>CA Central Valley & Bay Area</td> 
+		<td>1860</td>
+		<td><a href="https://search.library.ucdavis.edu/permalink/f/t3kr8e/01UCD_ALMA21206308240003126">Map Collection Old Maps   MAP G4362.S33 1860 .M2 Drawer 1</a></td>
 	</tr>
 
 </table>
@@ -105,7 +111,7 @@ td {
 
 <script type="text/javascript">
 
-var map1 = L.map('map1').setView([38.58, -121.5], 8);
+var map1 = L.map('map1').setView([37.0, -119.5], 6);
 
 // add background tiles
 var osm = L.tileLayer('//{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -114,9 +120,13 @@ attribution: '&amp; OpenStreetMap'}).addTo(map1);
 var watercolor = L.tileLayer('//stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.png');
 
 // add maps
+
+var SacramentoValley1860 = L.imageOverlay('images/G4362S331860M2.jpg', [[37.0731171206903483, -123.1266493472013366], [41.1878390903074987, -119.2018079650788138]]).addTo(map1);
+
 var Sacramento1912 = L.imageOverlay('images/G4363Y6J41912M2.jpg', [[38.4836176415186344, -121.6010610169879840], [38.6747912749419598, -121.2310588462640624]]).addTo(map1);
 
 var GrassValley1908 = L.imageOverlay('images/G4364G72G4751908M4.jpg', [[39.2014474372660686, -121.0805523038835929], [39.2260468106941929, -121.0443229058778059]]).addTo(map1);
+
 
 
 // make groups for the Layer Controls to work from
@@ -126,6 +136,7 @@ var baseMaps = {
 };
 
 var scannedMaps = {
+	"Sacramento Valley 1860": SacramentoValley1860,
 	"Sacramento 1912": Sacramento1912,
 	"Grass Valley 1908": GrassValley1908
 };
@@ -139,6 +150,8 @@ L.control.layers(baseMaps, scannedMaps).addTo(map1);
 
 document.getElementById('maplink_sacramento').onclick = function(){map1.setView([38.58, -121.5], 11)};
 document.getElementById('maplink_grassvalley').onclick = function(){map1.setView([39.21, -121.06], 14)};
+document.getElementById('maplink_sacramentovalley').onclick = function(){map1.setView([39.0, -121.5], 7)};
+
 
 //$('.maplink').on('click', function(){map1.panTo(L.latLng(0, 0))});
 //$('.maplink').on('click', function(){
