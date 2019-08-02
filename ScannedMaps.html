@@ -65,6 +65,43 @@ td {
 <p class = "view">
 <div id="map1">
 
+</div>
+<!--</div> -->
+</p>
+</section>
+
+<section>
+<div id='maptable'>
+<table>
+	<tr>
+		<th>Map Name</th>
+		<th>Description</th>
+		<th>Year</th>
+		<th>Call Number</th>	
+	</tr>
+	<tr>
+		<td><div id = 'maplink' class='maplink'><a href='#'>County of Yolo, California Reclamation District No. 900</a></div></td>
+		<td>Sacramento</td> 
+		<td>1912</td>
+		<td><a href="https://search.library.ucdavis.edu/permalink/f/t3kr8e/01UCD_ALMA21216601970003126">Map Collection Old Maps MAP G4363.Y6J4 1912 .M2 Drawer 1</a></td>
+	</tr>
+		<tr>
+		<td>Grass Valley Fire Districts</td>
+		<td>Grass Valley</td> 
+		<td>1908</td>
+		<td><a href="https://search.library.ucdavis.edu/permalink/f/t3kr8e/01UCD_ALMA21201586560003126">Map Collection Old Maps MAP G4364.G72G475 1908 .M4 Drawer 1</a></td>
+	</tr>
+
+</table>
+</div>
+</section>
+
+<section>
+<h3>About This Map</h3>
+<p>This is a proof-of-concept map showing how the UC Davis Library can use scanned maps.  This map shows a scanned map of downtown Sacramento from 1912 that was georeferenced and overlaid on OpenStreetMap data.</p>
+
+</section>
+
 <script type="text/javascript">
 
 var map1 = L.map('map1').setView([38.58, -121.5], 10);
@@ -103,7 +140,9 @@ L.control.layers(baseMaps, scannedMaps).addTo(map1);
 	//(e.panTo(L.latLng(39.0, -121.0)))
 	//});
 
-document.getElementById('maplink').onclick = function(map1){map1.panTo(L.latLng(33.0, -121.0))};
+document.getElementById('maplink').onclick = function(){map1.panTo(L.latLng(33.0, -121.0))};
+
+//document.getElementById('maplink').onclick = function(){print('yay!')};
 
 //$('.maplink').on('click', function(){map1.panTo(L.latLng(0, 0))});
 //$('.maplink').on('click', function(){
@@ -119,42 +158,6 @@ document.getElementById('maplink').onclick = function(map1){map1.panTo(L.latLng(
 
 
 </script>
-</div>
-<!--</div> -->
-</p>
-</section>
-
-<section>
-<div id='maptable'>
-<table>
-	<tr>
-		<th>Map Name</th>
-		<th>Description</th>
-		<th>Year</th>
-		<th>Call Number</th>	
-	</tr>
-	<tr>
-		<td><div id = 'maplink' class='maplink'><a href='#'>County of Yolo, California Reclamation District No. 900</a></div></td>
-		<td>Sacramento</td> 
-		<td>1912</td>
-		<td><a href="https://search.library.ucdavis.edu/permalink/f/t3kr8e/01UCD_ALMA21216601970003126">Map Collection Old Maps MAP G4363.Y6J4 1912 .M2 Drawer 1</a></td>
-	</tr>
-		<tr>
-		<td>Grass Valley Fire Districts</td>
-		<td>Grass Valley</td> 
-		<td>1908</td>
-		<td><a href="https://search.library.ucdavis.edu/permalink/f/t3kr8e/01UCD_ALMA21201586560003126">Map Collection Old Maps MAP G4364.G72G475 1908 .M4 Drawer 1</a></td>
-	</tr>
-
-</table>
-</div>
-</section>
-
-<section>
-<h3>About This Map</h3>
-<p>This is a proof-of-concept map showing how the UC Davis Library can use scanned maps.  This map shows a scanned map of downtown Sacramento from 1912 that was georeferenced and overlaid on OpenStreetMap data.</p>
-
-</section>
 
 
 </body>
