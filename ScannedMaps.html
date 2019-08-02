@@ -72,21 +72,22 @@ td {
 
 <section>
 <div id='maptable'>
+<p>Click on a map name to zoom to that map.  Use the menu button in the upper right corner of the map to toggle maps and baselayers.  Call number links take you to the UC Davis Library catalog entry for that map.</p>
 <table>
 	<tr>
 		<th>Map Name</th>
-		<th>Description</th>
+		<th>Region</th>
 		<th>Year</th>
 		<th>Call Number</th>	
 	</tr>
 	<tr>
-		<td><div id = 'maplink' class='maplink'><a href='#'>County of Yolo, California Reclamation District No. 900</a></div></td>
+		<td><div id = 'maplink_sacramento' class='maplink'><a href='javascript:void(0)'>County of Yolo, California Reclamation District No. 900</a></div></td>
 		<td>Sacramento</td> 
 		<td>1912</td>
 		<td><a href="https://search.library.ucdavis.edu/permalink/f/t3kr8e/01UCD_ALMA21216601970003126">Map Collection Old Maps MAP G4363.Y6J4 1912 .M2 Drawer 1</a></td>
 	</tr>
 		<tr>
-		<td>Grass Valley Fire Districts</td>
+		<td><div id = 'maplink_grassvalley'><a href='javascript:void(0)'>Grass Valley Fire Districts</a></div></td>
 		<td>Grass Valley</td> 
 		<td>1908</td>
 		<td><a href="https://search.library.ucdavis.edu/permalink/f/t3kr8e/01UCD_ALMA21201586560003126">Map Collection Old Maps MAP G4364.G72G475 1908 .M4 Drawer 1</a></td>
@@ -98,13 +99,13 @@ td {
 
 <section>
 <h3>About This Map</h3>
-<p>This is a proof-of-concept map showing how the UC Davis Library can use scanned maps.  This map shows a scanned map of downtown Sacramento from 1912 that was georeferenced and overlaid on OpenStreetMap data.</p>
+<p>This is a proof-of-concept map showing how the UC Davis Library can use scanned maps in a geographical search interface.  This map shows a scanned maps that were georeferenced and overlaid on OpenStreetMap data.</p>
 
 </section>
 
 <script type="text/javascript">
 
-var map1 = L.map('map1').setView([38.58, -121.5], 10);
+var map1 = L.map('map1').setView([38.58, -121.5], 8);
 
 // add background tiles
 var osm = L.tileLayer('//{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -136,13 +137,8 @@ L.control.layers(baseMaps, scannedMaps).addTo(map1);
 // make links that zoom to the maps
 // https://gis.stackexchange.com/questions/147052/leaflet-js-map-pan-too-and-zoom-in-on-point/147121
 
-//$('.maplink').on('click', function(e){
-	//(e.panTo(L.latLng(39.0, -121.0)))
-	//});
-
-document.getElementById('maplink').onclick = function(){map1.panTo(L.latLng(33.0, -121.0))};
-
-//document.getElementById('maplink').onclick = function(){print('yay!')};
+document.getElementById('maplink_sacramento').onclick = function(){map1.setView([38.58, -121.5], 11)};
+document.getElementById('maplink_grassvalley').onclick = function(){map1.setView([39.21, -121.06], 14)};
 
 //$('.maplink').on('click', function(){map1.panTo(L.latLng(0, 0))});
 //$('.maplink').on('click', function(){
