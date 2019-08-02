@@ -14,7 +14,8 @@
  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
    integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
    crossorigin=""></script>
- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+ //<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  <script src="js/leaflet.groupedlayercontrol.js" type="text/javascript"></script>
 
 
@@ -62,7 +63,7 @@ td {
 </header>
 <section>
 <p class = "view">
-<div id="map1"></div>
+<div id="map1">
 
 <script type="text/javascript">
 
@@ -98,9 +99,17 @@ L.control.layers(baseMaps, scannedMaps).addTo(map1);
 // make links that zoom to the maps
 // https://gis.stackexchange.com/questions/147052/leaflet-js-map-pan-too-and-zoom-in-on-point/147121
 
-$('.maplink').on('click', function(e){
-	(e.panTo(L.latLng(39.2014474372660686, -121.0805523038835929)))
-	});
+//$('.maplink').on('click', function(e){
+	//(e.panTo(L.latLng(39.0, -121.0)))
+	//});
+
+document.getElementById('maplink').onclick = function(map1){map1.panTo(L.latLng(33.0, -121.0))};
+
+//$('.maplink').on('click', function(){map1.panTo(L.latLng(0, 0))});
+//$('.maplink').on('click', function(){
+	//map1.setView([20, -118], 10)
+	//});
+
 // thing that seems to have answers: https://leafletjs.com/reference-1.5.0.html#pan-options
 
 
@@ -110,7 +119,7 @@ $('.maplink').on('click', function(e){
 
 
 </script>
-
+</div>
 <!--</div> -->
 </p>
 </section>
@@ -125,7 +134,7 @@ $('.maplink').on('click', function(e){
 		<th>Call Number</th>	
 	</tr>
 	<tr>
-		<td><a id='maplink' href>County of Yolo, California Reclamation District No. 900</a></td>
+		<td><div id = 'maplink' class='maplink'><a href='#'>County of Yolo, California Reclamation District No. 900</a></div></td>
 		<td>Sacramento</td> 
 		<td>1912</td>
 		<td><a href="https://search.library.ucdavis.edu/permalink/f/t3kr8e/01UCD_ALMA21216601970003126">Map Collection Old Maps MAP G4363.Y6J4 1912 .M2 Drawer 1</a></td>
