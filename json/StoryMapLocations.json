@@ -1,0 +1,53 @@
+{
+    "storymap": {
+        "slides": [{
+            "type": "overview",
+            "date": "2007-2011",
+            "text": {
+                "headline": "Califonia Beaches Grinnell Journal <small>Michele Tobias' study site journal</small>",
+                "text": "<p>This map shows the locations of journal entries for Michele Tobias' dissertation work documenting the state of California's foredune vegetation from 2007-2011.</p> <span class='vco-note'>Learn more about Michele's work at her <a href='https://sites.google.com/site/mtobiasresearch/'> research website</a>. Learn more about Joseph Grinnell's journalling method with <citation>Herman, Steven G. 1986. The Naturalist’s Field Journal: A Manual of Instruction Based on a System Established by Joseph Grinnell. Vermillion, South Dakota: Buteo Books.</citation></span>"
+            },
+            "media": {
+                    "url":              "images/StoryMapImages/Beach.jpg",
+                    "credit":               "Michele Tobias",
+                    "caption":          "A relatively unimpacted beach in southern California"
+                }
+        }, {
+            "date": "June 18, 2007",
+            "text": {
+                "headline": "Leo Carrillo State Park",
+                "text": "<p>Date: June 18, 2007</p> <p>Time: 0900-1600</p> <p>Location: The southern beach at Leo Carrillo State Park, located on Highway 1 near the county line between Ventura and Los Angeles Counties, just north of Malibu.</p> <p>Route: Frans Krajenbrink and I parked in the parking lot and walked under the highway and to the beach area south of the mouth of Arroyo Sequit. We set up the transects running from high water line to the back of the beach which corresponded with the edge of the cement pad for the showers and facilities.</p> <p>Weather: Warm and sunny.</p> <p>Habitat: Beach and foredune hillocks with coastal sage scrub towards the back of the beach and road area.</p> <p>Vegetation: The beach vegetation was mainly beach bur with a few other species.</p> <p>General Commentary: I observed a few European rocket plants very near the high water line, but they were very small and didn’t fall in any transects. The prickly beach bur seems to be doing better, maybe because no one wants to walk on them barefoot. People have built bunkers into the foredunes lined with the rocks that occur on the beach. The edges of these are typically vegetated with beach bur. Farther up on the beach, iceplant eradication seems to be going on. Where the iceplant has been removed, upland species are replacing it. I wonder if the plants at the back of the beach are affected by the freshwater coming from the showers that runs off the pad into the vegetation.</p> <p> Species:</p><table><tr><th>Common Name</th><th>Scientific Name</th></tr><tr><td>Beach Bur</td><td>Ambrosia chamissonis</td></tr> <tr><td>Mugwort</td><td>Artemisia douglasiana</td></tr> <tr><td>Coyote Brush </td><td>Baccharis pilularis</td></tr> <tr><td>Mulefat</td><td>Baccharis salicifolia</td></tr> <tr><td>European Rocket</td><td>Cakile maritima </td></tr> <tr><td>Iceplant (yellow) </td><td>Carpobrotus sp. </td></tr> <tr><td>Canadian Horseweed </td><td>Conyza canadensis </td></tr> <tr><td>Distichlis (?) </td><td>Distichlis spicata </td></tr> <tr><td>Telegraph Weed </td><td>Heterotheca grandiflora </td></tr> <tr><td>Sweet Clover </td><td>Melilotus officinalis </td></tr> <tr><td>Fountain Grass </td><td>Pennisetum setacetum </td></tr> <tr><td>Chickweed </td><td>Malacothrix saxatilis </td></tr> <tr><td>Bush Sunflower </td><td>Encelia californica </td></tr> <tr><td>Field Mustard </td><td>Brassica rapa </td></tr> <tr><td>grasses</td><td></th></tr></table>"
+            },
+            "location": {
+                "name": "Leo Carrillo State Beach, CA",
+                "lat": 34.045028,
+                "lon": -118.933357,
+                "zoom": 10,
+                "line": false
+            },
+            "media": {
+                    "url":              "/images/StoryMapImages/LeoCarrillo_KiteAerial.jpg",
+                    "credit":               "MicheleTobias",
+                    "caption":          "a stitched aerial image of the east side of Leo Carrillo"
+                }
+        }, {
+            "date": "June 19, 2007",
+            "text": {
+                "headline": "Ormond Beach & Sycamore Cove",
+                "text": "<p>Date: June 19, 2007</p> <p>Time: 0830-1130</p> <p>Location: Ormond Beach is located south of Port Hueneme and immediately north of Point Mugu Naval Air Weapons Station. The southern extent of this beach is marked by Arnold Road, which is off of Hueneme Road in Oxnard. Sycamore Cove is off of Highway 1 and is a part of Point Mugu State Park.</p> <p>Route:This was mainly a driving tour in which Frans Krajenbrink and I were investigating potential sampling sites. We drove to Ormond Beach first and parked in the southern lot for Hueneme Beach. Then we drove to Sycamore Cove and walked around the picnic area, investigating the vegetation that was there.</p> <p>Weather: Unrecorded</p> <p>Habitat: Beach with hillocks of vegetation including a picnic area and parking lot.</p> <p>Vegetation: The vegetation at Ormond was unrecorded at this time because of a sign warning of western snowy plovers. At Sycamore Cove, much of the vegetation here was impacted heavily by humans. There were many planted species including iceplant, podocarpus, and eucalyptus. The edge of the parking area was lined with the expected ruderals.</p> <p>General Commentary: At Sycamore Cove, the vegetation is sparse and limited to islands. This situation would require a different sampling strategy because it looks like transects would miss islands easily. In addition, if they did cross the islands, the current sampling procedure would over estimate cover. I believe there is also beach bur and a sand verbena at this beach, but they weren’t recorded originally because the stop was short.</p> <p> Species: <i>note: species recalled from memory a year later – this list is by no means exhaustive.</i></p><table><tr><th>Common Name</th><th>Scientific Name</th></tr><tr><td>Iceplant</td><td>Carpobrotus sp</td></tr> <tr><td>Eucalyptus</td><td>Eucalyptus sp</td></tr> <tr><td>Podocarpus </td><td>Podocarpus sp</td></tr></table>"
+            },
+            "location": {
+                "name": "Ormond Beach",
+                "lat": 34.121242,
+                "lon": -119.161164,
+                "zoom": 10,
+                "line": false
+            },
+            "media": {
+                    "url":              "https://www.californiabeaches.com/wp-content/uploads/2014/09/Ormond-Beach-Fixed2015-3-650x365.jpg",
+                    "credit":               "California Beaches",
+                    "caption":          "Ormond Beach"
+                }
+        }]
+    }
+}

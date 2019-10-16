@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+ 
+
+<style>
+#map1 { height: 600px; width: 600px; margin-right: 5px; }
+#map2 { height: 650px; width: 260px; margin-right: 5px;}
+#map3 { height: 650px; width: 260px;}
+#attribution {
+  font: 12px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #555;}
+
+td {
+     text-align: center;
+     font-weight: bold;
+}
+
+
+
+</style>
+
+<title>California Beaches Grinnell Journal</title>
+
+</head>
+
+<body>
+<div class="wrapper">
+
+<header>
+    <a href="http://micheletobias.github.io/maps"> <img src="images/Logo_Squares_500x488px.png" alt="Tobias Research Logo" style="float:left; padding: 10px; width:100px;height:100px" /> </a>
+    <h1>California Beaches</h1> 
+	<h1>Grinnell Journal</h1>
+    <p>Michele M. Tobias, PhD</p>
+    <p>University of California, Davis</p>
+    <p>mmtobias[at]ucdavis.edu</p>
+    
+    <p class="view"><a href="https://github.com/MicheleTobias/maps">View the Project on GitHub <small>MicheleTobias/maps</small></a></p>
+        <ul>
+          <li><a href="https://github.com/MicheleTobias/maps">Project On <strong>GitHub</strong></a></li>
+          <li><a href="https://sites.google.com/site/mtobiasresearch/">Research <strong>Website</strong></a></li>
+        </ul>
+        
+</header>
+<section>
+<p class = "view">
+<div id="mapdiv" style="width: 100%; height: 600px;"></div>
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/storymapjs/latest/css/storymap.css">
+
+<script type="text/javascript" src="https://cdn.knightlab.com/libs/storymapjs/latest/js/storymap-min.js"></script>
+
+<script>
+// storymap_data can be an URL or a Javascript object
+var storymap_data = 'json//StoryMapLocations.json';
+
+// certain settings must be passed within a separate options object
+var storymap_options = {};
+
+var storymap = new VCO.StoryMap('mapdiv', storymap_data, storymap_options);
+window.onresize = function(event) {
+    storymap.updateDisplay(); // this isn't automatic
+}
+
+</script>
+
+<!--</div> -->
+</p>
+</section>
+<section>
+<h3>About This Map</h3>
+<p>The purpose of this map is to share the Grinnell Journal I produced in the course of my dissertation research and other trips.  The map uses <a href="https://storymap.knightlab.com/">Knight Lab's StoryMap tools</a>.  This is very much a work in progress</p>
+
+<p>The full text of the journal entries published in my dissertation are available here:</p>
+
+<p id='citation'>Tobias, M.M. 2012.  California Beach Plant Biogeography: Biogeomorphology and Ecological Succession, Effects of Foot-Traffic Concentration, and Low-Altitude Aerial Photography.  Dissertation.  University of California, Davis. <a href="https://www.google.com/url?q=https%3A%2F%2Fsearch.proquest.com%2Fdocview%2F1235214146&sa=D&sntz=1&usg=AFQjCNGSzxa5MV3kGY1z6e5DtljfnPRGnA">Online</a></p>
+
+
+</section>
+<section>
+<h3>Recommended Citation:</h3>
+<p id="citation"> Coming soon. </p>
+</section>
+
+
+
+
+
+</body>
