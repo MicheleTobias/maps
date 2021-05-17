@@ -41,8 +41,8 @@
 <section>
 <h3>
 <a id="rather-drive-stick" class="anchor" href="#rather-drive-stick" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h3>
-<img src="images/LiteratureMapper_IconBig.png" style="float:left; padding: 10px; width:100px; height:105px">
-<p>Literature Mapper is a plugin for QGIS that inserts geoJSON geometry strings into an online Zotero database to facilitate the mapping of study site locations.  My <a hfref = "LiteratureMap.html">Literature Map</a> is an example of a map that has benefitted from this tool.  The locations stored in the database are displayed on the map canvas in virtual point and multipoint shapefiles on start up.</p>
+<img src="images/LiteratureMapper_IconBig.png" style="float:right; padding: 10px; width:100px; height:105px">
+<p>Literature Mapper is a plugin for QGIS 3.x that inserts geoJSON geometry strings into an online Zotero database to facilitate the mapping of study site locations.  Michele Tobias' <a hfref = "LiteratureMap.html">Literature Map</a> is an example of a map that has benefitted from this tool.  The locations stored in the database are displayed on the map canvas in virtual point and multipoint shapefiles on start up.</p>
 
 <p><strong>Credits:</strong> Literature Mapper is developed by Michele Tobias and Alex Mandel.
 </section>
@@ -52,7 +52,7 @@
 <h3>
 <a id="rather-drive-stick" class="anchor" href="#rather-drive-stick" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h3>
 <h4>Recommedations & Disclaimer</h4>
-<p>Literature Mapper is an experimental plugin for QGIS 2.x and 3.x.  The developers of Literature Mapper make no guarantees that the program will function as intended.  Because the program may alter your database in unexpected ways, it is highly recommended that you back up your Zotero database before you alter it with Literature Mapper.
+<p>Literature Mapper is an experimental plugin.  The developers of Literature Mapper make no guarantees that the program will function as intended.  Because the program may alter your database in unexpected ways, it is highly recommended that you back up your Zotero database before you alter it with Literature Mapper.
 </p>
 
 <h4>Download & Install</h4>
@@ -91,12 +91,10 @@
 <p>On start up, the plugin will scan your Zotero database to look for locations you've previously entered.  When it finds them, it sorts the locations into either a point or multipoint virtual shapefile.  If you would like to keep these shapefiles, right click on the file in the Layers List, then select Save As.  Currently, the shapefiles don't update in real time as you edit, although this is on the list of future upgrades.  To referesh the shapefiles, you need to restart the plugin. </p>
 <img src="images/LiteratureMapper_Shapefiles.JPG" style=" padding: 10px">
 
-<h4>Updates in Version 0.3.1</h4>
+<h4>Updates in Version 0.3.3</h4>
 <ul>
-<li>The coordinate reference system has been set to WGS 84 (EPSG 4326), which is standard for geojson.</li>
-<li>Attachments and Notes are now ignored by Literature Mapper and should no longer cause a crash.</li>
-<li>All date formats are accepted because the code converts any date to text currently.  Future updates should include more sophisticated date handling.</li>
-<li>Collections longer than 100 entries now display in their entirety in the Literature Mapper table (not just 100 records).</li>
+<li>Literature Mapper no longer overwrites the Extra field for each item, but creates a html-like tag structure and only edits inside the tag.</li>
+
 
 </ul>
 
@@ -111,13 +109,15 @@
 <h4>Known Trouble Spots:</h4>
 <p>Issues are tracked on the GitHub repository's <a href = "https://github.com/MicheleTobias/LiteratureMapper/issues">Issues tab</a>. Here are some known issues with Literature Mapper that may cause you some trouble. We're working on these and encourage you to file other issues on the issue tracker.
 <ul>
-<li>If you have text entered into the Extra field in your Zotero database, Literature Mapper will overwrite these because it uses the Extra field to store the geometries.  If you want to keep this information, you will need to move it to a different field (perhaps a Note) before you save anything with Literature Mapper.  Future versions of Zotero may make creating other fields (such as a geometry field) possible, but for now, we use the Extra field.</li>
+<li>We have had reports that Literature Mapper does not work well with collections created with Better BibTex.  We would like more information about the behavior of Literature Mapper with this tool so we can fix the bugs.</li>
 
 </ul>
   
 <h4>Works Citing LiteratureMapper</h4>
-<p id= "citation"> Goldstein et al. (2018), Literature-based latitudinal distribution and possible range shifts of two US east coast dune
-grass species (Uniola paniculata and Ammophila breviligulata). PeerJ 6:e4932; DOI 10.7717/peerj.4932  https://peerj.com/articles/4932.pdf </p>
+<p id= "citation">Tobias, M.M. and A.I. Mandel. 2021. Literature Mapper: A QGIS Plugin for Georeferencing Citations in Zotero. Air, Soil and Water Research 14:1-8. <a href="https://doi.org/10.1177/1178622121100920">Open Access.</a></p>
+
+<p id= "citation"> Goldstein et al. 2018, Literature-based latitudinal distribution and possible range shifts of two US east coast dune
+grass species (Uniola paniculata and Ammophila breviligulata). PeerJ 6:e4932; DOI 10.7717/peerj.4932  <a href="https://peerj.com/articles/4932.pdf"> Available from PeerJ. </a> </p>
 
 <h4>Suggested Citation</h4>
 <p id = "citation">Tobias, M.M., and A.I. Mandel.  2018.  Literature Mapper. Version 0.3.1.  QGIS Plugin.  https://github.com/MicheleTobias/LiteratureMapper/blob/master/literature_mapper.py </p>
